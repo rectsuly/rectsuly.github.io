@@ -1,0 +1,1501 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+
+  
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.36 with theme Tranquilpeak 0.4.3-BETA">
+    <title>带你玩转以太坊智能合约的&#34;Hello World&#34;</title>
+    <meta name="author" content="Sily酱">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="https://rectsuly.github.io/favicon.png">
+    
+
+    
+    <meta name="description" content="手把手教你入门编写以太坊智能合约的&rdquo;Hello World&rdquo;。
+">
+    <meta property="og:description" content="手把手教你入门编写以太坊智能合约的&rdquo;Hello World&rdquo;。
+">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="带你玩转以太坊智能合约的&#34;Hello World&#34;">
+    <meta property="og:url" content="/2018/01/%E5%B8%A6%E4%BD%A0%E7%8E%A9%E8%BD%AC%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E7%9A%84hello-world/">
+    <meta property="og:site_name" content="Sily&#39;s blog">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Sily&#39;s blog">
+    <meta name="twitter:description" content="手把手教你入门编写以太坊智能合约的&rdquo;Hello World&rdquo;。
+">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="http://ox90kdrp0.bkt.clouddn.com/sily.jpg">
+    
+
+    
+      <meta property="og:image" content="http://www.igeek.com.cn/uploads/2018/02/01/d12ff3064f717432ec727d98a1e86bcc.jpeg">
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://rectsuly.github.io/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://rectsuly.github.io/">Sily&#39;s blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://rectsuly.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="http://ox90kdrp0.bkt.clouddn.com/sily.jpg" alt="作者的图片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://rectsuly.github.io/#about">
+          <img class="sidebar-profile-picture" src="http://ox90kdrp0.bkt.clouddn.com/sily.jpg" alt="作者的图片" />
+        </a>
+        <h4 class="sidebar-profile-name">Sily酱</h4>
+        
+          <h5 class="sidebar-profile-bio">程序猿小哥哥一枚</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://rectsuly.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">首页</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://rectsuly.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">分类</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://rectsuly.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">标签</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://rectsuly.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">归档</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://rectsuly.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">关于</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/rectsuly" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://rectsuly.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      带你玩转以太坊智能合约的&#34;Hello World&#34;
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2018-01-10T00:00:00Z">
+        
+  一月 10, 2018
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://rectsuly.github.io/categories/blockchain">Blockchain</a>, 
+    
+      <a class="category-link" href="https://rectsuly.github.io/categories/ethereum">Ethereum</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>手把手教你入门编写以太坊智能合约的&rdquo;Hello World&rdquo;。
+</p>
+
+<h2 id="1-学习目标">1.学习目标</h2>
+
+<ol>
+<li>了解智能合约</li>
+<li>简单环境搭建</li>
+<li>能够利用solidity编写Hello World合约</li>
+<li>合约部署</li>
+<li>和合约互动</li>
+</ol>
+
+<h2 id="2-使用solidity语言撰写智能合约">2.使用solidity语言撰写智能合约</h2>
+
+<p>Ethereum上的智能合约需要使用solidity语言来撰写。solidity是一种类似Javsscript的语言，而且围绕着solidity的各种开发工具链，都是使用属于Javascript生态系的npm来提供的。但solidity在语法上比较像Java或C#，因为和Javascript不同，solidity与Java或C#同属于强类型语言，、在定义函数时同样需要指定回传的类型、同样也需要先编译才能执行。这些特性都是Javascript所不具备的。</p>
+
+<h2 id="3-开发前的准备">3.开发前的准备</h2>
+
+<p>我们将使用当前最活跃的智能合约开发框架truffle为基础来开发。ENS（Ethereum Name Service）也是采用truffle框架。其他选择还有embark等。</p>
+
+<p>开发过程中，我们将使用testrpc工具在电脑上模拟智能合约所需的以太坊内存块链测试环境。</p>
+
+<p>testrpc中也包含了Javascript版本的Ethereum虚拟机（Ethereum Virtual Machine），因此可以完整地执行智能合约。</p>
+
+<p>代码编辑器使用Atom，搭配solidity插件来开发。Atom是Github为开发者设计的基于Chromium的编辑器，支持NodeJS写的插件，内置Git，使用MIT协议开源发布。solidity插件除了支持语法高亮之外，也会透过Solium检查并提示基本的语法错误，相当方便。其他编辑器应该也有类似的插件可选择。</p>
+
+<h3 id="4-ubuntu环境下atom编辑器安装及使用">4.Ubuntu环境下Atom编辑器安装及使用</h3>
+
+<pre><code class="language-Linux">sudo add-apt-repository ppa:webupd8team/atom
+sudo apt-get update
+sudo apt-get install atom
+</code></pre>
+
+<p>安装插件linter-solidity、autocomplete-solidity、linter-solium以方便solidity代码编写。</p>
+
+<h2 id="5-安装所需工具">5.安装所需工具</h2>
+
+<p>首先安装Node.js</p>
+
+<h3 id="安装nvm">安装nvm</h3>
+
+<pre><code>cd ~
+mkdir .nvm
+cd .nvm
+git clone https://github.com/creationix/nvm
+</code></pre>
+
+<p>等待下载完毕后<code>source ~/.nvm/nvm/nvm.sh</code>添加到<code>~/.profile</code>之类的文件中</p>
+
+<pre><code>vim ~/.profile
+</code></pre>
+
+<p>并在文件末尾添加<code>source ~/.nvm/nvm/nvm.sh</code></p>
+
+<pre><code>source ~/.profile
+nvm --version
+</code></pre>
+
+<p>检查安装是否正确</p>
+
+<h3 id="安装node">安装node</h3>
+
+<pre><code>nvm install node
+node --version
+</code></pre>
+
+<h3 id="安装npm">安装npm</h3>
+
+<pre><code>git clone --recursive git://github.com/isaacs/npm.git
+cd npm/bin
+node npm-cli.js install npm -g
+npm --version
+</code></pre>
+
+<p>安装ethereumjs-testrpc和truffle</p>
+
+<pre><code>npm install -g ethereumjs-testrpc truffle
+</code></pre>
+
+<pre><code>sily@lyg-sily:~$ npm install -g ethereumjs-testrpc truffle
+
+/home/sily/.nvm/nvm/versions/node/v9.3.0/bin/testrpc -&gt; /home/sily/.nvm/nvm/versions/node/v9.3.0/lib/node_modules/ethereumjs-testrpc/build/cli.node.js
+/home/sily/.nvm/nvm/versions/node/v9.3.0/bin/truffle -&gt; /home/sily/.nvm/nvm/versions/node/v9.3.0/lib/node_modules/truffle/build/cli.bundled.js
++ ethereumjs-testrpc@6.0.3
++ truffle@4.0.4
+added 343 packages in 115.81s
+</code></pre>
+
+<h2 id="启动testrpc">启动testrpc</h2>
+
+<p>安装好后随时可以使用<code>testrpc</code>命令来启动以太坊测试环境。</p>
+
+<pre><code>sily@lyg-sily:~$ testrpc
+EthereumJS TestRPC v6.0.3 (ganache-core: 2.0.2)
+
+Available Accounts
+==================
+(0) 0x7e1897cec8e1a098384d17e85a9cd348ccb92b4a
+(1) 0x6c96c6cb16442ab83aea0eb1bc3a183e28a922fe
+(2) 0x163f0e06082c5cd14ff56658b186a30b0f6e7d9f
+(3) 0x0e9558b2cb935ab26484c3d6783fbf2fe70041c8
+(4) 0xa2233f08bbb7e3a826cc4c2cede22caf3a6922e6
+(5) 0x3b1317510218f98946e0fb72b1a0685ac00bcbc4
+(6) 0xca33f56a03e5ae86e25655f4dd7de88be12ec184
+(7) 0xfb56aed85dd00908f1e0729ed80d06f456898588
+(8) 0x6cfe240b49a28986057016ef2ecd9d6711f6b632
+(9) 0x0e866473d6776edc39935dd5d00425b6ab2a423a
+
+Private Keys
+==================
+(0) 3ae87bfaeabf103ce723b78525ab1278b2c7652b93b99a0131321adaa7000537
+(1) 2f23eaef51f941b7af171a56acbd7524554ad529236b6abb6920935218f5df58
+(2) 9b5b5d42786e74364e80b45ecf1a2b7201db7eafe12684f71006fbe3368e6dfe
+(3) 33181b42772371fad50f29b8377f7a3de72000397f9b021677e329bede7bfcc7
+(4) 3f5f366d89ab9263b92f35368840d24d562af043db8a5ad773dc8cc8f122662d
+(5) 29933e3e79129da23da3cc0f5cecb03c583c3ad6c4c1ad8a39d68386fe92d91b
+(6) 7e9bd47a6120bb9a240a96ce80866b98646f07cb98197bdffec389805575144b
+(7) 0c7144621371a04e4ee733d06482b0a23ed775af17172e75e26f2b8915814e35
+(8) 60ab702bdad5a348645f65fb0678cafec891c534964982d97b96f4a57abd78ef
+(9) 8ff45f1ccb23bec8a317a6e218b3b50290646317b5c809c797e1522bcef9d031
+
+HD Wallet
+==================
+Mnemonic:      vapor high liberty evoke pledge bronze critic stomach neck figure recipe mind
+Base HD Path:  m/44'/60'/0'/0/{account_index}
+
+Listening on localhost:8545
+</code></pre>
+
+<p>可以看到<code>testrpc</code>启动后自动建立了10个账号(Accounts)，与每个账号对应的私钥(Private Key)。每个账号中都有100个测试用的以太币(Ether)。要注意<code>testrpc</code>仅运行在内存中，因此每次重开时都会回到全新的状态。</p>
+
+<p>一切就绪，我们可以开始建立第一个智能合约项目了。</p>
+
+<h2 id="6-建立项目">6.建立项目</h2>
+
+<p>开启另一个终端，输入以下命令以建立项目：</p>
+
+<pre><code>sily@lyg-sily:~$ mkdir SmartContractDemo
+sily@lyg-sily:~$ cd SmartContractDemo/
+sily@lyg-sily:~/SmartContractDemo$ mkdir HelloWorld
+sily@lyg-sily:~/SmartContractDemo$ cd HelloWorld/
+sily@lyg-sily:~/SmartContractDemo/HelloWorld$ truffle init
+Downloading...
+Unpacking...
+Setting up...
+Unbox successful. Sweet!
+
+Commands:
+
+  Compile:        truffle compile
+  Migrate:        truffle migrate
+  Test contracts: truffle test
+sily@lyg-sily:~/SmartContractDemo/HelloWorld$ ls
+contracts  migrations  test  truffle-config.js  truffle.js
+sily@lyg-sily:~/SmartContractDemo/HelloWorld$
+</code></pre>
+
+<h3 id="目录结构">目录结构</h3>
+
+<p><code>/contracts</code>:存放智能合约原始代码的地方，可以看到里面有个<code>Migrations.sol</code>文件，我们的<code>HelloWorld.sol</code>文件就存放在这里。</p>
+
+<p><code>/migrations</code>:这是<code>Truffle</code>用来部署智能合约的功能，待会儿我们会修改<code>2_deploy_contracts.js</code>来部署<code>HelloWorld.sol</code>。</p>
+
+<p><code>/test</code>:测试智能合约的代码放在这里，支持<code>js</code>与<code>sol</code>测试。</p>
+
+<p><code>truffle.js</code>:<code>Truffle</code>的设置文档。</p>
+
+<h2 id="7-新建helloworld合约">7.新建HelloWorld合约</h2>
+
+<p>在<code>contracts</code>文件夹下新建<code>HelloWorld.sol</code>文件，当然也可以直接在<code>HelloWorld</code>路径下面直接执行<code>truffle create contract HelloWorld</code>命令来创建<code>HelloWorld.sol</code>。</p>
+
+<pre><code>sily@lyg-sily:~/SmartContractDemo/HelloWorld$ ls
+contracts  migrations  test  truffle-config.js  truffle.js
+sily@lyg-sily:~/SmartContractDemo/HelloWorld$ truffle create contract HelloWorld
+sily@lyg-sily:~/SmartContractDemo/HelloWorld$ cd contracts/
+sily@lyg-sily:~/SmartContractDemo/HelloWorld/contracts$ ls
+HelloWorld.sol  Migrations.sol
+sily@lyg-sily:~/SmartContractDemo/HelloWorld/contracts$
+</code></pre>
+
+<p><code>HelloWorld.sol</code>的文件内容如下：</p>
+
+<pre><code>pragma solidity ^0.4.4;
+
+contract HelloWorld {
+    function sayHello() returns (string) {
+        return (&quot;Hello World&quot;);
+    }
+}
+</code></pre>
+
+<h3 id="代码说明">代码说明</h3>
+
+<pre><code>pragma solidity ^0.4.4;
+</code></pre>
+
+<p>第一行表明目前使用的<code>solidity</code>版本，不同版本的<code>solidity</code>可能会编译出不同的<code>bytecode</code>。<code>^</code>代表兼容<code>solidity 0.4.4~0.4.9</code>的版本。</p>
+
+<pre><code>contract HelloWorld {
+    ...
+}
+</code></pre>
+
+<p><code>contract</code>关键字类似于其他语言中较常见的<code>class</code>。因为<code>solidity</code>是专为智能合约(Contract)设计的语言，声明<code>contract</code>后即内置了开发智能合约所需的功能。也可以把这句理解为</p>
+
+<pre><code>function sayHello() returns (string) {
+    return (&quot;Hello World&quot;);
+}
+</code></pre>
+
+<p>函数的结构与其他程序类似，但如果有传入的参数或回传值，需要指定参数或回传值的类型(type)。</p>
+
+<h2 id="8-编译">8.编译</h2>
+
+<p>现在执行<code>truffle compile</code>命令，我们可以将<code>HelloWorld.sol</code>原始码编译成<code>Ethereum bytecode</code>。</p>
+
+<pre><code>sily@lyg-sily:~/SmartContractDemo/HelloWorld$ ls
+contracts  migrations  test  truffle-config.js  truffle.js
+sily@lyg-sily:~/SmartContractDemo/HelloWorld$ truffle compile
+Compiling ./contracts/HelloWorld.sol...
+Compiling ./contracts/Migrations.sol...
+
+Compilation warnings encountered:
+
+/home/sily/SmartContractDemo/HelloWorld/contracts/HelloWorld.sol:4:3: Warning: No visibility specified. Defaulting to &quot;public&quot;.
+  function sayHello() returns (string) {
+  ^
+Spanning multiple lines.
+,/home/sily/SmartContractDemo/HelloWorld/contracts/HelloWorld.sol:4:3: Warning: Function state mutability can be restricted to pure
+  function sayHello() returns (string) {
+  ^
+Spanning multiple lines.
+
+Writing artifacts to ./build/contracts
+
+sily@lyg-sily:~/SmartContractDemo/HelloWorld$ ls
+build  contracts  migrations  test  truffle-config.js  truffle.js
+</code></pre>
+
+<p>编译成功后，会在<code>HelloWorld</code>文件夹下面的<code>build/contracts</code>文件夹下面看见<code>HelloWorld.json</code>文件。</p>
+
+<h2 id="9-部署">9.部署</h2>
+
+<p><code>truffle</code>框架中提供了方便部署合约的脚本。打开<code>migrations/2_deploy_contracts.js</code>文件（脚本使用<code>Javascript</code>编写），将内容修改如下：</p>
+
+<pre><code>var HelloWorld = artifacts.require(&quot;HelloWorld&quot;);
+module.exports = function(deployer) {
+    deployer.deploy(HelloWorld);
+};
+</code></pre>
+
+<p>使用<code>artifacts.require</code>语句来取得准备部署的合约。使用<code>deployer.deploy</code>语句将合约部署到区块链上。这边<code>HelloWorld</code>是<code>contract</code>的名称而不是文件夹。因此可以用此语法读入任一<code>.sol</code>文件中的任一合约。</p>
+
+<p>现在执行<code>truffle migrate</code>命令：</p>
+
+<pre><code>sily@lyg-sily:~/SmartContractDemo/HelloWorld$ truffle migrate
+Compiling ./contracts/HelloWorld.sol...
+
+Compilation warnings encountered:
+
+/home/sily/SmartContractDemo/HelloWorld/contracts/HelloWorld.sol:4:3: Warning: Function state mutability can be restricted to pure
+  function sayHello() public constant returns (string) {
+  ^
+Spanning multiple lines.
+
+Writing artifacts to ./build/contracts
+
+Error: No network specified. Cannot determine current network.
+    at Object.detect (/home/sily/.nvm/nvm/versions/node/v9.3.0/lib/node_modules/truffle/build/cli.bundled.js:41338:23)
+    at /home/sily/.nvm/nvm/versions/node/v9.3.0/lib/node_modules/truffle/build/cli.bundled.js:202239:19
+    at /home/sily/.nvm/nvm/versions/node/v9.3.0/lib/node_modules/truffle/build/cli.bundled.js:41263:11
+    at /home/sily/.nvm/nvm/versions/node/v9.3.0/lib/node_modules/truffle/build/cli.bundled.js:41295:9
+    at &lt;anonymous&gt;
+</code></pre>
+
+<p>可以发现，此时在使用<code>truffle migrate</code>进行智能合约test环境发布时出现异常，原因是<code>truffle.js</code>里面未配置链接合约发布时的环境地址，找到对应的<code>truffle.js</code>文件，修改代码为类似如下配置即可解决问题：</p>
+
+<pre><code>module.exports = {
+    networks: {
+        development: {
+            host: &quot;localhost&quot;,
+            port:8545,
+            network_id:&quot;*&quot;  // 匹配任何network id
+        }
+    }
+};
+</code></pre>
+
+<p>重新执行<code>truffle migrate</code>:</p>
+
+<pre><code>sily@lyg-sily:~/SmartContractDemo/HelloWorld$ truffle migrate
+Using network 'development'.
+
+Running migration: 1_initial_migration.js
+  Deploying Migrations...
+  ... 0xd43c42b526addb75876bb26a3086cabf79eaf9b0dbb1cd18ce3d6cc78f8e5335
+  Migrations: 0x69c7674e74ee9aee187ea05b97faf08d6a7c0b94
+Saving successful migration to network...
+  ... 0x4aa706f72045aec809b3ab5d286489c157e6f5e73e1538a441cfb199c512f849
+Saving artifacts...
+Running migration: 2_deploy_contracts.js
+  Deploying HelloWorld...
+  ... 0x35afc83dd8e594167f1ddb9f52250b02aa72508a9b77ad15f5bd58b19a1e7275
+  HelloWorld: 0x93ca4fd7d2820b2156fd88e40783ac9a41e26cfe
+Saving successful migration to network...
+  ... 0x12174aa188a4c47f84e071356149dfc9a51942bd81ce53d84bb22225d18d2fae
+Saving artifacts...
+sily@lyg-sily:~/SmartContractDemo/HelloWorld$
+</code></pre>
+
+<p>如此以后，合约已经部署到<code>testrpc</code>中。切换到<code>testrpc</code>窗口，可以看到<code>testrpc</code>有反应了。</p>
+
+<pre><code>Listening on localhost:8545
+net_version
+eth_accounts
+eth_accounts
+net_version
+net_version
+eth_sendTransaction
+
+  Transaction: 0xd43c42b526addb75876bb26a3086cabf79eaf9b0dbb1cd18ce3d6cc78f8e5335
+  Contract created: 0x69c7674e74ee9aee187ea05b97faf08d6a7c0b94
+  Gas usage: 269607
+  Block Number: 1
+  Block Time: Wed Jan 10 2018 20:19:00 GMT+0800 (CST)
+
+eth_newBlockFilter
+eth_getFilterChanges
+eth_getTransactionReceipt
+eth_getCode
+eth_uninstallFilter
+eth_sendTransaction
+
+  Transaction: 0x4aa706f72045aec809b3ab5d286489c157e6f5e73e1538a441cfb199c512f849
+  Gas usage: 41981
+  Block Number: 2
+  Block Time: Wed Jan 10 2018 20:19:01 GMT+0800 (CST)
+
+eth_getTransactionReceipt
+eth_accounts
+net_version
+net_version
+eth_sendTransaction
+
+  Transaction: 0x35afc83dd8e594167f1ddb9f52250b02aa72508a9b77ad15f5bd58b19a1e7275
+  Contract created: 0x93ca4fd7d2820b2156fd88e40783ac9a41e26cfe
+  Gas usage: 142468
+  Block Number: 3
+  Block Time: Wed Jan 10 2018 20:19:01 GMT+0800 (CST)
+
+eth_newBlockFilter
+eth_getFilterChanges
+eth_getTransactionReceipt
+eth_getCode
+eth_uninstallFilter
+eth_sendTransaction
+
+  Transaction: 0x12174aa188a4c47f84e071356149dfc9a51942bd81ce53d84bb22225d18d2fae
+  Gas usage: 26981
+  Block Number: 4
+  Block Time: Wed Jan 10 2018 20:19:01 GMT+0800 (CST)
+
+eth_getTransactionReceipt
+</code></pre>
+
+<h2 id="10-与合约互动">10.与合约互动</h2>
+
+<p><code>truffle</code>提供命令行工具，执行<code>truffle console</code>命令后，可用<code>Javascript</code>来和刚刚部署的合约互动。</p>
+
+<pre><code>sily@lyg-sily:~/SmartContractDemo/HelloWorld$ ls
+build  contracts  migrations  test  truffle-config.js  truffle.js
+sily@lyg-sily:~/SmartContractDemo/HelloWorld$ truffle console
+truffle(development)&gt; let contract
+undefined
+truffle(development)&gt; HelloWorld.deployed().then(instance =&gt; contract = instance)
+TruffleContract {
+  constructor:
+   { [Function: TruffleContract]
+     _static_methods:
+      { setProvider: [Function: setProvider],
+        new: [Function: new],
+        at: [Function: at],
+        deployed: [Function: deployed],
+        defaults: [Function: defaults],
+        hasNetwork: [Function: hasNetwork],
+        isDeployed: [Function: isDeployed],
+        detectNetwork: [Function: detectNetwork],
+        setNetwork: [Function: setNetwork],
+        resetAddress: [Function: resetAddress],
+        link: [Function: link],
+        clone: [Function: clone],
+        addProp: [Function: addProp],
+        toJSON: [Function: toJSON] },
+     _properties:
+      { contract_name: [Object],
+        contractName: [Object],
+        abi: [Object],
+        network: [Function: network],
+        networks: [Function: networks],
+        address: [Object],
+        links: [Function: links],
+        events: [Function: events],
+        binary: [Function: binary],
+        deployedBinary: [Function: deployedBinary],
+        unlinked_binary: [Object],
+        bytecode: [Object],
+        deployedBytecode: [Object],
+        sourceMap: [Object],
+        deployedSourceMap: [Object],
+        source: [Object],
+        sourcePath: [Object],
+        ast: [Object],
+        compiler: [Object],
+        schema_version: [Function: schema_version],
+        schemaVersion: [Function: schemaVersion],
+        updated_at: [Function: updated_at],
+        updatedAt: [Function: updatedAt] },
+     _property_values: {},
+     _json:
+      { contractName: 'HelloWorld',
+        abi: [Array],
+        bytecode: '0x6060604052341561000f57600080fd5b6101578061001e6000396000f300606060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063ef5fb05b14610046575b600080fd5b341561005157600080fd5b6100596100d4565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561009957808201518184015260208101905061007e565b50505050905090810190601f1680156100c65780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6100dc610117565b6040805190810160405280600b81526020017f48656c6c6f20576f726c64000000000000000000000000000000000000000000815250905090565b6020604051908101604052806000815250905600a165627a7a72305820b98aa7cabcef6181bb855c27290b86a3ed577c3493b6cf1cebfeb4be9a990c2e0029',
+        deployedBytecode: '0x606060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063ef5fb05b14610046575b600080fd5b341561005157600080fd5b6100596100d4565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561009957808201518184015260208101905061007e565b50505050905090810190601f1680156100c65780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6100dc610117565b6040805190810160405280600b81526020017f48656c6c6f20576f726c64000000000000000000000000000000000000000000815250905090565b6020604051908101604052806000815250905600a165627a7a72305820b98aa7cabcef6181bb855c27290b86a3ed577c3493b6cf1cebfeb4be9a990c2e0029',
+        sourceMap: '25:112:0:-;;;;;;;;;;;;;;;;;',
+        deployedSourceMap: '25:112:0:-;;;;;;;;;;;;;;;;;;;;;;;;49:86;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;49:86:0;94:6;;:::i;:::-;108:22;;;;;;;;;;;;;;;;;;;;49:86;:::o;25:112::-;;;;;;;;;;;;;;;:::o',
+        source: 'pragma solidity ^0.4.4;\n\ncontract HelloWorld {\n  function sayHello() public constant returns (string) {\n    return (&quot;Hello World&quot;);\n  }\n}\n',
+        sourcePath: '/home/sily/SmartContractDemo/HelloWorld/contracts/HelloWorld.sol',
+        ast: [Object],
+        compiler: [Object],
+        networks: [Object],
+        schemaVersion: '1.0.1',
+        updatedAt: '2018-01-10T12:19:01.841Z' },
+     setProvider: [Function: bound setProvider],
+     new: [Function: bound new],
+     at: [Function: bound at],
+     deployed: [Function: bound deployed],
+     defaults: [Function: bound defaults],
+     hasNetwork: [Function: bound hasNetwork],
+     isDeployed: [Function: bound isDeployed],
+     detectNetwork: [Function: bound detectNetwork],
+     setNetwork: [Function: bound setNetwork],
+     resetAddress: [Function: bound resetAddress],
+     link: [Function: bound link],
+     clone: [Function: bound clone],
+     addProp: [Function: bound addProp],
+     toJSON: [Function: bound toJSON],
+     web3:
+      Web3 {
+        _requestManager: [RequestManager],
+        currentProvider: [Provider],
+        eth: [Eth],
+        db: [DB],
+        shh: [Shh],
+        net: [Net],
+        personal: [Personal],
+        bzz: [Swarm],
+        settings: [Settings],
+        version: [Object],
+        providers: [Object],
+        _extend: [Function] },
+     class_defaults:
+      { from: '0x7e1897cec8e1a098384d17e85a9cd348ccb92b4a',
+        gas: 6721975,
+        gasPrice: 100000000000 },
+     currentProvider:
+      HttpProvider {
+        host: 'http://localhost:8545',
+        timeout: 0,
+        user: undefined,
+        password: undefined,
+        send: [Function],
+        sendAsync: [Function],
+        _alreadyWrapped: true },
+     network_id: '1515578597496' },
+  abi:
+   [ { constant: true,
+       inputs: [],
+       name: 'sayHello',
+       outputs: [Array],
+       payable: false,
+       stateMutability: 'view',
+       type: 'function' } ],
+  contract:
+   Contract {
+     _eth:
+      Eth {
+        _requestManager: [RequestManager],
+        getBalance: [Function],
+        getStorageAt: [Function],
+        getCode: [Function],
+        getBlock: [Function],
+        getUncle: [Function],
+        getCompilers: [Function],
+        getBlockTransactionCount: [Function],
+        getBlockUncleCount: [Function],
+        getTransaction: [Function],
+        getTransactionFromBlock: [Function],
+        getTransactionReceipt: [Function],
+        getTransactionCount: [Function],
+        call: [Function],
+        estimateGas: [Function],
+        sendRawTransaction: [Function],
+        signTransaction: [Function],
+        sendTransaction: [Function],
+        sign: [Function],
+        compile: [Object],
+        submitWork: [Function],
+        getWork: [Function],
+        coinbase: [Getter],
+        getCoinbase: [Function],
+        mining: [Getter],
+        getMining: [Function],
+        hashrate: [Getter],
+        getHashrate: [Function],
+        syncing: [Getter],
+        getSyncing: [Function],
+        gasPrice: [Getter],
+        getGasPrice: [Function],
+        accounts: [Getter],
+        getAccounts: [Function],
+        blockNumber: [Getter],
+        getBlockNumber: [Function],
+        protocolVersion: [Getter],
+        getProtocolVersion: [Function],
+        iban: [Function],
+        sendIBANTransaction: [Function: bound transfer] },
+     transactionHash: null,
+     address: '0x93ca4fd7d2820b2156fd88e40783ac9a41e26cfe',
+     abi: [ [Object] ],
+     sayHello:
+      { [Function: bound ]
+        request: [Function: bound ],
+        call: [Function: bound ],
+        sendTransaction: [Function: bound ],
+        estimateGas: [Function: bound ],
+        getData: [Function: bound ],
+        '': [Circular] },
+     allEvents: [Function: bound ] },
+  sayHello:
+   { [Function]
+     call: [Function],
+     sendTransaction: [Function],
+     request: [Function: bound ],
+     estimateGas: [Function] },
+  sendTransaction: [Function],
+  send: [Function],
+  allEvents: [Function: bound ],
+  address: '0x93ca4fd7d2820b2156fd88e40783ac9a41e26cfe',
+  transactionHash: null }
+truffle(development)&gt; contract.sayHello.call()
+'Hello World'
+truffle(development)&gt;
+</code></pre>
+
+<p><code>truffle console</code>中预载了<code>truffle-contract</code>函数库，以方便操作部署到区块链上的合约。使用了<code>HelloWorld.deployed().then</code>语句来取得<code>HelloWorld</code>合约的<code>Instance</code>(实例)，并存到<code>contract</code>变量中，以方便后续的调用。</p>
+
+<p>上面用的是<code>Javascript ES6+</code>的语法，这句也可以写成：</p>
+
+<pre><code>HelloWorld.deployed().then(instance =&gt; {
+    contract = instance
+});
+</code></pre>
+
+<p>还可以用ES5的写法：</p>
+
+<pre><code>HelloWorld.deployed().then(function(instance) {
+    hello = instance;
+});
+</code></pre>
+
+<pre><code>truffle(development)&gt; contract.sayHello.call()
+'Hello World'
+</code></pre>
+
+<p>最后通过<code>contract.sayHello.call()</code>成功打印出<code>&quot;Hello World&quot;</code>，这里直接调用<code>contract.sayHello()</code>也会得到一样的结果。<code>truffle-contract</code>提供使用<code>call()</code>来读取只读(read only)的数据，这样就不需提供<code>gas</code>。因此如果遇到的操作需要向区块链写入数据，我们就不能用<code>call</code>语句了。</p>
+
+<p>这样，我们的第一个智能合约就已经写好并部署好了，也验证了合约确实可以运行。</p>
+
+<h2 id="11-加入新方法">11.加入新方法</h2>
+
+<p>我们在<code>HelloWorld.sol</code>中再加入一个<code>echo</code>方法，<code>echo</code>方法接受一个参数，并回传传送的参数。</p>
+
+<pre><code>function echo(string name) constant returns (string) {
+    return name;
+}
+</code></pre>
+
+<p>新的<code>echo</code>方法中传入了一个<code>name</code>参数。我们也为<code>echo</code>方法加入一个<code>constant</code>声明，表示调用这个方法并不会改变区块链的状态。如此一来，透过<code>truffle-contract</code>来调用此方法时，会自动选用<code>call</code>来呼叫，也不需要额外提供<code>gas</code>。</p>
+
+<p>由于更新了合约内容，我们需要先重新编译一次，将编译结果部署到<code>testrpc</code>上，再通过<code>truffle console</code>执行查看结果。</p>
+
+<pre><code>sily@lyg-sily:~/SmartContractDemo/HelloWorld$ truffle migrate --reset
+Compiling ./contracts/HelloWorld.sol...
+
+Compilation warnings encountered:
+
+/home/sily/SmartContractDemo/HelloWorld/contracts/HelloWorld.sol:4:3: Warning: Function state mutability can be restricted to pure
+  function sayHello() public constant returns (string) {
+  ^
+Spanning multiple lines.
+,/home/sily/SmartContractDemo/HelloWorld/contracts/HelloWorld.sol:8:3: Warning: Function state mutability can be restricted to pure
+  function echo(string name) public constant returns (string) {
+  ^
+Spanning multiple lines.
+
+Writing artifacts to ./build/contracts
+
+Using network 'development'.
+
+Running migration: 1_initial_migration.js
+  Replacing Migrations...
+  ... 0xfc5af4b443dcae96f96206e26d2bc93b9699e7d14980dd0247baea112bd04c44
+  Migrations: 0xee671e4bb1e86df24120041587b0a4841924f7bd
+Saving successful migration to network...
+  ... 0x1d7e34e903cc04a5e5cd6e5cca1031034841bd001dd693b488500fe75c4df9e2
+Saving artifacts...
+Running migration: 2_deploy_contracts.js
+  Replacing HelloWorld...
+  ... 0xdb8c8ef861498972ad769f947e9c03872b3f17f7292deff3fa25d5f5318ce94f
+  HelloWorld: 0xace9ff211c9131362e05774335c6b3a353739119
+Saving successful migration to network...
+  ... 0x3a653f82abd0b92f389ea78ba654f51ff2256961f72b280874676cebac24f895
+Saving artifacts...
+sily@lyg-sily:~/SmartContractDemo/HelloWorld$ truffle console
+truffle(development)&gt; let contract
+undefined
+truffle(development)&gt; HelloWorld.deployed().then(instance =&gt; contract = instance)
+TruffleContract {
+  constructor:
+   { [Function: TruffleContract]
+     _static_methods:
+      { setProvider: [Function: setProvider],
+        new: [Function: new],
+        at: [Function: at],
+        deployed: [Function: deployed],
+        defaults: [Function: defaults],
+        hasNetwork: [Function: hasNetwork],
+        isDeployed: [Function: isDeployed],
+        detectNetwork: [Function: detectNetwork],
+        setNetwork: [Function: setNetwork],
+        resetAddress: [Function: resetAddress],
+        link: [Function: link],
+        clone: [Function: clone],
+        addProp: [Function: addProp],
+        toJSON: [Function: toJSON] },
+     _properties:
+      { contract_name: [Object],
+        contractName: [Object],
+        abi: [Object],
+        network: [Function: network],
+        networks: [Function: networks],
+        address: [Object],
+        links: [Function: links],
+        events: [Function: events],
+        binary: [Function: binary],
+        deployedBinary: [Function: deployedBinary],
+        unlinked_binary: [Object],
+        bytecode: [Object],
+        deployedBytecode: [Object],
+        sourceMap: [Object],
+        deployedSourceMap: [Object],
+        source: [Object],
+        sourcePath: [Object],
+        ast: [Object],
+        compiler: [Object],
+        schema_version: [Function: schema_version],
+        schemaVersion: [Function: schemaVersion],
+        updated_at: [Function: updated_at],
+        updatedAt: [Function: updatedAt] },
+     _property_values: {},
+     _json:
+      { contractName: 'HelloWorld',
+        abi: [Array],
+        bytecode: '0x6060604052341561000f57600080fd5b6102488061001e6000396000f30060606040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063ef5fb05b14610051578063f15da729146100df575b600080fd5b341561005c57600080fd5b6100646101b5565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100a4578082015181840152602081019050610089565b50505050905090810190601f1680156100d15780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b34156100ea57600080fd5b61013a600480803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919050506101f8565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561017a57808201518184015260208101905061015f565b50505050905090810190601f1680156101a75780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6101bd610208565b6040805190810160405280600b81526020017f48656c6c6f20576f726c64000000000000000000000000000000000000000000815250905090565b610200610208565b819050919050565b6020604051908101604052806000815250905600a165627a7a72305820ce2a412dd03391bea1a4d86dcaa57502a5d812ad4005a99570a2bb3b3ffd25ec0029',
+        deployedBytecode: '0x60606040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063ef5fb05b14610051578063f15da729146100df575b600080fd5b341561005c57600080fd5b6100646101b5565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100a4578082015181840152602081019050610089565b50505050905090810190601f1680156100d15780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b34156100ea57600080fd5b61013a600480803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919050506101f8565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561017a57808201518184015260208101905061015f565b50505050905090810190601f1680156101a75780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6101bd610208565b6040805190810160405280600b81526020017f48656c6c6f20576f726c64000000000000000000000000000000000000000000815250905090565b610200610208565b819050919050565b6020604051908101604052806000815250905600a165627a7a72305820ce2a412dd03391bea1a4d86dcaa57502a5d812ad4005a99570a2bb3b3ffd25ec0029',
+        sourceMap: '25:198:0:-;;;;;;;;;;;;;;;;;',
+        deployedSourceMap: '25:198:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;49:86;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;139:82:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;49:86:0;94:6;;:::i;:::-;108:22;;;;;;;;;;;;;;;;;;;;49:86;:::o;139:82::-;191:6;;:::i;:::-;212:4;205:11;;139:82;;;:::o;25:198::-;;;;;;;;;;;;;;;:::o',
+        source: 'pragma solidity ^0.4.4;\n\ncontract HelloWorld {\n  function sayHello() public constant returns (string) {\n    return (&quot;Hello World&quot;);\n  }\n\n  function echo(string name) public constant returns (string) {\n    return name;\n  }\n}\n',
+        sourcePath: '/home/sily/SmartContractDemo/HelloWorld/contracts/HelloWorld.sol',
+        ast: [Object],
+        compiler: [Object],
+        networks: [Object],
+        schemaVersion: '1.0.1',
+        updatedAt: '2018-01-10T13:34:12.869Z' },
+     setProvider: [Function: bound setProvider],
+     new: [Function: bound new],
+     at: [Function: bound at],
+     deployed: [Function: bound deployed],
+     defaults: [Function: bound defaults],
+     hasNetwork: [Function: bound hasNetwork],
+     isDeployed: [Function: bound isDeployed],
+     detectNetwork: [Function: bound detectNetwork],
+     setNetwork: [Function: bound setNetwork],
+     resetAddress: [Function: bound resetAddress],
+     link: [Function: bound link],
+     clone: [Function: bound clone],
+     addProp: [Function: bound addProp],
+     toJSON: [Function: bound toJSON],
+     web3:
+      Web3 {
+        _requestManager: [RequestManager],
+        currentProvider: [Provider],
+        eth: [Eth],
+        db: [DB],
+        shh: [Shh],
+        net: [Net],
+        personal: [Personal],
+        bzz: [Swarm],
+        settings: [Settings],
+        version: [Object],
+        providers: [Object],
+        _extend: [Function] },
+     class_defaults:
+      { from: '0x7e1897cec8e1a098384d17e85a9cd348ccb92b4a',
+        gas: 6721975,
+        gasPrice: 100000000000 },
+     currentProvider:
+      HttpProvider {
+        host: 'http://localhost:8545',
+        timeout: 0,
+        user: undefined,
+        password: undefined,
+        send: [Function],
+        sendAsync: [Function],
+        _alreadyWrapped: true },
+     network_id: '1515578597496' },
+  abi:
+   [ { constant: true,
+       inputs: [],
+       name: 'sayHello',
+       outputs: [Array],
+       payable: false,
+       stateMutability: 'view',
+       type: 'function' },
+     { constant: true,
+       inputs: [Array],
+       name: 'echo',
+       outputs: [Array],
+       payable: false,
+       stateMutability: 'view',
+       type: 'function' } ],
+  contract:
+   Contract {
+     _eth:
+      Eth {
+        _requestManager: [RequestManager],
+        getBalance: [Function],
+        getStorageAt: [Function],
+        getCode: [Function],
+        getBlock: [Function],
+        getUncle: [Function],
+        getCompilers: [Function],
+        getBlockTransactionCount: [Function],
+        getBlockUncleCount: [Function],
+        getTransaction: [Function],
+        getTransactionFromBlock: [Function],
+        getTransactionReceipt: [Function],
+        getTransactionCount: [Function],
+        call: [Function],
+        estimateGas: [Function],
+        sendRawTransaction: [Function],
+        signTransaction: [Function],
+        sendTransaction: [Function],
+        sign: [Function],
+        compile: [Object],
+        submitWork: [Function],
+        getWork: [Function],
+        coinbase: [Getter],
+        getCoinbase: [Function],
+        mining: [Getter],
+        getMining: [Function],
+        hashrate: [Getter],
+        getHashrate: [Function],
+        syncing: [Getter],
+        getSyncing: [Function],
+        gasPrice: [Getter],
+        getGasPrice: [Function],
+        accounts: [Getter],
+        getAccounts: [Function],
+        blockNumber: [Getter],
+        getBlockNumber: [Function],
+        protocolVersion: [Getter],
+        getProtocolVersion: [Function],
+        iban: [Function],
+        sendIBANTransaction: [Function: bound transfer] },
+     transactionHash: null,
+     address: '0xace9ff211c9131362e05774335c6b3a353739119',
+     abi: [ [Object], [Object] ],
+     sayHello:
+      { [Function: bound ]
+        request: [Function: bound ],
+        call: [Function: bound ],
+        sendTransaction: [Function: bound ],
+        estimateGas: [Function: bound ],
+        getData: [Function: bound ],
+        '': [Circular] },
+     echo:
+      { [Function: bound ]
+        request: [Function: bound ],
+        call: [Function: bound ],
+        sendTransaction: [Function: bound ],
+        estimateGas: [Function: bound ],
+        getData: [Function: bound ],
+        string: [Circular] },
+     allEvents: [Function: bound ] },
+  sayHello:
+   { [Function]
+     call: [Function],
+     sendTransaction: [Function],
+     request: [Function: bound ],
+     estimateGas: [Function] },
+  echo:
+   { [Function]
+     call: [Function],
+     sendTransaction: [Function],
+     request: [Function: bound ],
+     estimateGas: [Function] },
+  sendTransaction: [Function],
+  send: [Function],
+  allEvents: [Function: bound ],
+  address: '0xace9ff211c9131362e05774335c6b3a353739119',
+  transactionHash: null }
+truffle(development)&gt; contract.echo(&quot;2018-1-10 blockchain&quot;)
+'2018-1-10 blockchain'
+truffle(development)&gt;
+</code></pre>
+
+<p><code>echo</code>方法确实将我们输入的内容回传了。同时因为声明了<code>constant</code>，我们不需要直接调用<code>call()</code>方法，<code>truffle</code>会自动选用<code>call</code>来调用。</p>
+
+<p>另外需要注意，如果我们还是使用<code>truffle migrate</code>命令，会得到如下信息：</p>
+
+<pre><code>$ truffle migrate
+Using network 'development'.
+
+Network up to date.
+</code></pre>
+
+<p><code>Truffle</code>会告诉你现在网络上的合约都已经是最新的，但事实上刚刚程序中新增的方法并没有更新到内存块链上。要更新内存块链上已部署的程序，需要改写<code>migrations</code>中的脚本，但现在还不到介绍<code>migration</code>的时候。还好我们开发用的内存块链是怎么修改都没关系的<code>testrpc</code>，可以使用<code>truffle migrate --reset</code>命令直接在<code>testrpc</code>上部署一次。</p>
+
+<p>参考自:
+<a href="http://blog.csdn.net/liyuechun520/article/details/78036363">http://blog.csdn.net/liyuechun520/article/details/78036363</a></p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://rectsuly.github.io/tags/truffle/">truffle</a>
+
+  <a class="tag tag--primary tag--small" href="https://rectsuly.github.io/tags/testrpc/">testrpc</a>
+
+  <a class="tag tag--primary tag--small" href="https://rectsuly.github.io/tags/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/">智能合约</a>
+
+  <a class="tag tag--primary tag--small" href="https://rectsuly.github.io/tags/%E4%BB%A5%E5%A4%AA%E5%9D%8A/">以太坊</a>
+
+  <a class="tag tag--primary tag--small" href="https://rectsuly.github.io/tags/solidity/">solidity</a>
+
+                  </div>
+                
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://rectsuly.github.io/2018/01/%E5%9F%BA%E4%BA%8E%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BB%BA%E7%AB%8B%E7%AE%80%E6%98%93%E4%BB%A3%E5%B8%81/" data-tooltip="基于智能合约建立简易代币">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rectsuly.github.io/2018/01/%E5%B8%A6%E4%BD%A0%E7%8E%A9%E8%BD%AC%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E7%9A%84hello-world/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rectsuly.github.io/2018/01/%E5%B8%A6%E4%BD%A0%E7%8E%A9%E8%BD%AC%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E7%9A%84hello-world/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rectsuly.github.io/2018/01/%E5%B8%A6%E4%BD%A0%E7%8E%A9%E8%BD%AC%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E7%9A%84hello-world/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2018 Sily酱. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://rectsuly.github.io/2018/01/%E5%9F%BA%E4%BA%8E%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BB%BA%E7%AB%8B%E7%AE%80%E6%98%93%E4%BB%A3%E5%B8%81/" data-tooltip="基于智能合约建立简易代币">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rectsuly.github.io/2018/01/%E5%B8%A6%E4%BD%A0%E7%8E%A9%E8%BD%AC%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E7%9A%84hello-world/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rectsuly.github.io/2018/01/%E5%B8%A6%E4%BD%A0%E7%8E%A9%E8%BD%AC%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E7%9A%84hello-world/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rectsuly.github.io/2018/01/%E5%B8%A6%E4%BD%A0%E7%8E%A9%E8%BD%AC%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E7%9A%84hello-world/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frectsuly.github.io%2F2018%2F01%2F%25E5%25B8%25A6%25E4%25BD%25A0%25E7%258E%25A9%25E8%25BD%25AC%25E4%25BB%25A5%25E5%25A4%25AA%25E5%259D%258A%25E6%2599%25BA%25E8%2583%25BD%25E5%2590%2588%25E7%25BA%25A6%25E7%259A%2584hello-world%2F">
+          <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Frectsuly.github.io%2F2018%2F01%2F%25E5%25B8%25A6%25E4%25BD%25A0%25E7%258E%25A9%25E8%25BD%25AC%25E4%25BB%25A5%25E5%25A4%25AA%25E5%259D%258A%25E6%2599%25BA%25E8%2583%25BD%25E5%2590%2588%25E7%25BA%25A6%25E7%259A%2584hello-world%2F">
+          <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Frectsuly.github.io%2F2018%2F01%2F%25E5%25B8%25A6%25E4%25BD%25A0%25E7%258E%25A9%25E8%25BD%25AC%25E4%25BB%25A5%25E5%25A4%25AA%25E5%259D%258A%25E6%2599%25BA%25E8%2583%25BD%25E5%2590%2588%25E7%25BA%25A6%25E7%259A%2584hello-world%2F">
+          <i class="fa fa-google-plus"></i><span>分享到 Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="http://ox90kdrp0.bkt.clouddn.com/sily.jpg" alt="作者的图片" />
+    
+    <h4 id="about-card-name">Sily酱</h4>
+    
+      <div id="about-card-bio">程序猿小哥哥一枚</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        学生
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        合肥，安徽
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="搜索" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center"></div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://rectsuly.github.io/2018/01/%E5%9C%A8ubuntu%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%AE%89%E8%A3%85metamask%E4%BB%A5%E5%A4%AA%E5%9D%8A%E9%92%B1%E5%8C%85%E6%8F%92%E4%BB%B6/">
+                <h3 class="media-heading">在Ubuntu环境中安装MetaMask以太坊钱包插件</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>MetaMask是一款浏览器插件钱包，不需下载安装客户端，只需添加至浏览器扩展程序即可使用，非常方便,并且可以很方便的调试和测试以太坊的智能合约。
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://rectsuly.github.io/2018/01/ubuntu%E7%B3%BB%E7%BB%9F%E4%B8%ADipfs%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE/">
+                <h3 class="media-heading">Ubuntu系统中IPFS环境的配置</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>IPFS（InterPlanetaryFile System）是一个点对点的分布式超媒体分发协议，它整合了过去几年最好的分布式系统思路，为所有人提供全球统一的可寻址空间，包括Git、自证明文件系统SFS、BitTorrent和DHT，同时也被认为是最有可能取代HTTP的新一代互联网协议。
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://rectsuly.github.io/2018/01/%E5%9F%BA%E4%BA%8E%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BB%BA%E7%AB%8B%E6%A0%87%E5%87%86%E4%BB%A3%E5%B8%81/">
+                <h3 class="media-heading">基于智能合约建立标准代币</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>更进一步地，用React框架和OpenZeppelin函数库来建立兼容以太坊ERC20标准的加密货币。
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://rectsuly.github.io/2018/01/%E5%9F%BA%E4%BA%8E%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BB%BA%E7%AB%8B%E7%AE%80%E6%98%93%E4%BB%A3%E5%B8%81/">
+                <h3 class="media-heading">基于智能合约建立简易代币</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>接上一篇编写智能合约的教程<a href="http://blog.csdn.net/rectsuly/article/details/79028766">带你玩转以太坊智能合约的&rdquo;Hello World&rdquo;</a>，我们现在要建立一个简单的代币系统，具备最简单的转账和查询功能。
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://rectsuly.github.io/2018/01/%E5%B8%A6%E4%BD%A0%E7%8E%A9%E8%BD%AC%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E7%9A%84hello-world/">
+                <h3 class="media-heading">带你玩转以太坊智能合约的&#34;Hello World&#34;</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>手把手教你入门编写以太坊智能合约的&rdquo;Hello World&rdquo;。
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero=""
+         data-message-one=""
+         data-message-other="">
+         5 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://rectsuly.github.io/images/cover.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://rectsuly.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/rectsuly.github.io\/2018\/01\/%E5%B8%A6%E4%BD%A0%E7%8E%A9%E8%BD%AC%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E7%9A%84hello-world\/';
+          
+            this.page.identifier = '\/2018\/01\/%E5%B8%A6%E4%BD%A0%E7%8E%A9%E8%BD%AC%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E7%9A%84hello-world\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'hugo-tranquilpeak-theme';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+    
+  </body>
+</html>
+

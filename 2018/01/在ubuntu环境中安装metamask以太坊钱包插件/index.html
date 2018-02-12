@@ -1,0 +1,713 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+
+  
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.36 with theme Tranquilpeak 0.4.3-BETA">
+    <title>在Ubuntu环境中安装MetaMask以太坊钱包插件</title>
+    <meta name="author" content="Sily酱">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="https://rectsuly.github.io/favicon.png">
+    
+
+    
+    <meta name="description" content="MetaMask是一款浏览器插件钱包，不需下载安装客户端，只需添加至浏览器扩展程序即可使用，非常方便,并且可以很方便的调试和测试以太坊的智能合约。
+">
+    <meta property="og:description" content="MetaMask是一款浏览器插件钱包，不需下载安装客户端，只需添加至浏览器扩展程序即可使用，非常方便,并且可以很方便的调试和测试以太坊的智能合约。
+">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="在Ubuntu环境中安装MetaMask以太坊钱包插件">
+    <meta property="og:url" content="/2018/01/%E5%9C%A8ubuntu%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%AE%89%E8%A3%85metamask%E4%BB%A5%E5%A4%AA%E5%9D%8A%E9%92%B1%E5%8C%85%E6%8F%92%E4%BB%B6/">
+    <meta property="og:site_name" content="Sily&#39;s blog">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Sily&#39;s blog">
+    <meta name="twitter:description" content="MetaMask是一款浏览器插件钱包，不需下载安装客户端，只需添加至浏览器扩展程序即可使用，非常方便,并且可以很方便的调试和测试以太坊的智能合约。
+">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="http://ox90kdrp0.bkt.clouddn.com/sily.jpg">
+    
+
+    
+      <meta property="og:image" content="http://www.uuuu.cc/uploads/allimg/c180113/1515P63c42530-62204.jpg">
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://rectsuly.github.io/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://rectsuly.github.io/">Sily&#39;s blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://rectsuly.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="http://ox90kdrp0.bkt.clouddn.com/sily.jpg" alt="作者的图片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://rectsuly.github.io/#about">
+          <img class="sidebar-profile-picture" src="http://ox90kdrp0.bkt.clouddn.com/sily.jpg" alt="作者的图片" />
+        </a>
+        <h4 class="sidebar-profile-name">Sily酱</h4>
+        
+          <h5 class="sidebar-profile-bio">程序猿小哥哥一枚</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://rectsuly.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">首页</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://rectsuly.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">分类</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://rectsuly.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">标签</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://rectsuly.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">归档</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://rectsuly.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">关于</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/rectsuly" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://rectsuly.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      在Ubuntu环境中安装MetaMask以太坊钱包插件
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2018-01-31T00:00:00Z">
+        
+  一月 31, 2018
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://rectsuly.github.io/categories/blockchain">Blockchain</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>MetaMask是一款浏览器插件钱包，不需下载安装客户端，只需添加至浏览器扩展程序即可使用，非常方便,并且可以很方便的调试和测试以太坊的智能合约。
+</p>
+
+<h4 id="1-安装-google-chrome-浏览器">1.安装<code>Google Chrome</code>浏览器</h4>
+
+<p>首先下载安装包：</p>
+
+<pre><code>$ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+</code></pre>
+
+<p>由于在进行解压安装包的时候，可能会发生——“在处理时有错误发生： google-chrome-stable”这个错误，因此我们先执行一条额外的命令：执行：<code>apt-get -f install</code>  。最后执行以下命令：</p>
+
+<pre><code>$ dpkg -i google-chrome-stable_current_amd64.deb
+</code></pre>
+
+<p>完毕后可在<code>Ubuntu</code>中搜索<code>Chrome</code>关键字找到下载好的浏览器，打开并固定到图标栏。</p>
+
+<h4 id="2-下载metamask插件">2.下载MetaMask插件</h4>
+
+<p>在<code>Chrome</code>浏览器中——获取更多扩展程序，搜索<code>MetaMask</code>即可（需要科学上网，自行解决，笔者用的是<code>WindScribe</code>），<code>MetaMask</code>的下载网址为<a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=zh-CN">https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=zh-CN</a>
+安装完毕后，在浏览器上会显示该插件的狐狸小图标，点击小狐狸图标，会出现<code>MetaMask</code>的主操作界面：
+<img src="http://img.blog.csdn.net/20180131153241066?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcmVjdHN1bHk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="1" /></p>
+
+<p>我们可以使用<code>MetaMask</code>钱包申请创建一个新的以太坊钱包，不过通过这种方式创建的钱包是通过助记词来作为钱包备份恢复手段的，只能通过<code>MetaMask</code>钱包来恢复。所以在这里我们不通过<code>MetaMask</code>钱包来创建以太坊账号，而是在<code>MyEtherWallet</code>网站上申请创建。打开<a href="https://www.myetherwallet.com/">https://www.myetherwallet.com/</a> ，在<code>Create New Wallet</code>面板中输入密码，然后下载保存<code>Keystore</code>文件，作为以后备份恢复钱包的手段。</p>
+
+<p>保存备份好以太坊钱包账户后，打开<code>MetaMask</code>，先随便输入密码进入主界面，然后点击右上角图标进入子菜单，点击<code>Import Account</code>导入我们之前申请的<code>MyEtherWallet</code>钱包账户：</p>
+
+<p><img src="http://img.blog.csdn.net/20180131153350538?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcmVjdHN1bHk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="2" /></p>
+
+<p>导入方式为<code>JSON File</code>，在这里有个坑，由于<code>MetaMask</code>插件在<code>Ubuntu</code>系统的<code>Chrome</code>浏览器中有未修复的bug，不能直接通过插件来导入<code>Json</code>文件。先打开<code>extension://nkbihfbeogaeaoehlefnkodbefgpgknn/popup.html</code>，在新标签的扩展程序页面中进行导入。</p>
+
+<p>完成以后，我们可以看到之前创建好的钱包已经导入到<code>MetaMask</code>中，此时以太币余额为0eth。点击左上角图标切换到测试网络中（第一个是以太网主网络），然后点击<code>BUY</code>按钮，利用<code>ROPSTEN TEST FAUCET</code>获取测试币。由于是测试网络，所以购买不需要花费钱。</p>
+
+<p><img src="http://img.blog.csdn.net/20180131153511193?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcmVjdHN1bHk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="3" /></p>
+
+<p>我们可以从<code>faucet</code>账户中获取到ether，点击1次获取1eher的币，也可以点击下面的黄色按钮向faucet账户转账1、10或者100个ether。然后再返回我们的<code>MetaMask</code>插件，就可以看到钱包中有了代币。</p>
+
+<h4 id="3-通过metamask钱包在remix编译器上运行solidity智能合约">3.通过MetaMask钱包在remix编译器上运行Solidity智能合约</h4>
+
+<p>打开浏览器编译器Remix：<a href="http://remix.ethereum.org，先输入以下HelloWorld测试代码，该代码中包含1个update()函数，传递amount参数，可以向账户中转账。">http://remix.ethereum.org，先输入以下HelloWorld测试代码，该代码中包含1个update()函数，传递amount参数，可以向账户中转账。</a></p>
+
+<p><img src="http://img.blog.csdn.net/20180131153610767?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcmVjdHN1bHk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="4" /></p>
+
+<p>打开右边工具栏中的<code>Run</code>选项卡，在<code>Environment</code>中切换成<code>Injected Web3</code>，这就是我们的<code>MetaMask</code>钱包里面的测试网络。相应地，账户地址也变成了我们之前创建的以太坊钱包地址0x80e&hellip;70df6，可以看到当前剩余测试代币数量为11.990（原本是12个的，转账操作消耗了gas）。</p>
+
+<p>然后我们点击<code>Run</code>下方的<code>Create</code>按钮，会在浏览器左边弹出<code>MetaMask</code>的交易确认消息框：</p>
+
+<p><img src="http://img.blog.csdn.net/20180131153706597?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcmVjdHN1bHk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="5" /></p>
+
+<p>原因是我们在以太坊测试网络中部署智能合约也要消耗一定量的gas矿工费，点击<code>SUBMIT</code>确定，稍等片刻，我们的智能合约就布署好了。</p>
+
+<p><img src="http://img.blog.csdn.net/20180131153744915?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcmVjdHN1bHk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="6" /></p>
+
+<p>在合约地址下方会出现update()函数及其参数框，输入2，确认，可以看到这里的update()操作也是需要修改区块链上数据并且需要消耗手续费的，所以在浏览器左边继续弹出交易信息确认框，点击确认。在<code>MetaMask</code>中，还可以查看每一笔交易的信息：</p>
+
+<p><img src="http://img.blog.csdn.net/20180131153822534?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcmVjdHN1bHk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="7" /></p>
+
+<p>那么，我们如何知道我们刚才点击的update()函数是否生效呢？在代码区的下方，是控制台，可以看到，交易完成后，在以太坊测试网络中会有新的区块产生，并且返回数据：</p>
+
+<p><img src="http://img.blog.csdn.net/20180131153849236?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcmVjdHN1bHk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="8" /></p>
+
+<p>value的值为10^18Wei，即1ether（Wei是以太坊的最小单位，含义是为了纪念戴伟这个密码学专家大牛）。</p>
+
+<p>到此为止，我们就完成了<code>MetaMask</code>钱包插件的安装及简单使用，当然，在后续开发过程中，我们也可以将<code>MetaMask</code>钱包的网络切换到公网或者自己创建的私链。</p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://rectsuly.github.io/tags/metamask/">MetaMask</a>
+
+                  </div>
+                
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://rectsuly.github.io/2018/01/ubuntu%E7%B3%BB%E7%BB%9F%E4%B8%ADipfs%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE/" data-tooltip="Ubuntu系统中IPFS环境的配置">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rectsuly.github.io/2018/01/%E5%9C%A8ubuntu%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%AE%89%E8%A3%85metamask%E4%BB%A5%E5%A4%AA%E5%9D%8A%E9%92%B1%E5%8C%85%E6%8F%92%E4%BB%B6/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rectsuly.github.io/2018/01/%E5%9C%A8ubuntu%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%AE%89%E8%A3%85metamask%E4%BB%A5%E5%A4%AA%E5%9D%8A%E9%92%B1%E5%8C%85%E6%8F%92%E4%BB%B6/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rectsuly.github.io/2018/01/%E5%9C%A8ubuntu%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%AE%89%E8%A3%85metamask%E4%BB%A5%E5%A4%AA%E5%9D%8A%E9%92%B1%E5%8C%85%E6%8F%92%E4%BB%B6/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2018 Sily酱. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://rectsuly.github.io/2018/01/ubuntu%E7%B3%BB%E7%BB%9F%E4%B8%ADipfs%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE/" data-tooltip="Ubuntu系统中IPFS环境的配置">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rectsuly.github.io/2018/01/%E5%9C%A8ubuntu%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%AE%89%E8%A3%85metamask%E4%BB%A5%E5%A4%AA%E5%9D%8A%E9%92%B1%E5%8C%85%E6%8F%92%E4%BB%B6/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rectsuly.github.io/2018/01/%E5%9C%A8ubuntu%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%AE%89%E8%A3%85metamask%E4%BB%A5%E5%A4%AA%E5%9D%8A%E9%92%B1%E5%8C%85%E6%8F%92%E4%BB%B6/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rectsuly.github.io/2018/01/%E5%9C%A8ubuntu%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%AE%89%E8%A3%85metamask%E4%BB%A5%E5%A4%AA%E5%9D%8A%E9%92%B1%E5%8C%85%E6%8F%92%E4%BB%B6/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frectsuly.github.io%2F2018%2F01%2F%25E5%259C%25A8ubuntu%25E7%258E%25AF%25E5%25A2%2583%25E4%25B8%25AD%25E5%25AE%2589%25E8%25A3%2585metamask%25E4%25BB%25A5%25E5%25A4%25AA%25E5%259D%258A%25E9%2592%25B1%25E5%258C%2585%25E6%258F%2592%25E4%25BB%25B6%2F">
+          <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Frectsuly.github.io%2F2018%2F01%2F%25E5%259C%25A8ubuntu%25E7%258E%25AF%25E5%25A2%2583%25E4%25B8%25AD%25E5%25AE%2589%25E8%25A3%2585metamask%25E4%25BB%25A5%25E5%25A4%25AA%25E5%259D%258A%25E9%2592%25B1%25E5%258C%2585%25E6%258F%2592%25E4%25BB%25B6%2F">
+          <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Frectsuly.github.io%2F2018%2F01%2F%25E5%259C%25A8ubuntu%25E7%258E%25AF%25E5%25A2%2583%25E4%25B8%25AD%25E5%25AE%2589%25E8%25A3%2585metamask%25E4%25BB%25A5%25E5%25A4%25AA%25E5%259D%258A%25E9%2592%25B1%25E5%258C%2585%25E6%258F%2592%25E4%25BB%25B6%2F">
+          <i class="fa fa-google-plus"></i><span>分享到 Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="http://ox90kdrp0.bkt.clouddn.com/sily.jpg" alt="作者的图片" />
+    
+    <h4 id="about-card-name">Sily酱</h4>
+    
+      <div id="about-card-bio">程序猿小哥哥一枚</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        学生
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        合肥，安徽
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="搜索" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center"></div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://rectsuly.github.io/2018/01/%E5%9C%A8ubuntu%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%AE%89%E8%A3%85metamask%E4%BB%A5%E5%A4%AA%E5%9D%8A%E9%92%B1%E5%8C%85%E6%8F%92%E4%BB%B6/">
+                <h3 class="media-heading">在Ubuntu环境中安装MetaMask以太坊钱包插件</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>MetaMask是一款浏览器插件钱包，不需下载安装客户端，只需添加至浏览器扩展程序即可使用，非常方便,并且可以很方便的调试和测试以太坊的智能合约。
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://rectsuly.github.io/2018/01/ubuntu%E7%B3%BB%E7%BB%9F%E4%B8%ADipfs%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE/">
+                <h3 class="media-heading">Ubuntu系统中IPFS环境的配置</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>IPFS（InterPlanetaryFile System）是一个点对点的分布式超媒体分发协议，它整合了过去几年最好的分布式系统思路，为所有人提供全球统一的可寻址空间，包括Git、自证明文件系统SFS、BitTorrent和DHT，同时也被认为是最有可能取代HTTP的新一代互联网协议。
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://rectsuly.github.io/2018/01/%E5%9F%BA%E4%BA%8E%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BB%BA%E7%AB%8B%E6%A0%87%E5%87%86%E4%BB%A3%E5%B8%81/">
+                <h3 class="media-heading">基于智能合约建立标准代币</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>更进一步地，用React框架和OpenZeppelin函数库来建立兼容以太坊ERC20标准的加密货币。
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://rectsuly.github.io/2018/01/%E5%9F%BA%E4%BA%8E%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BB%BA%E7%AB%8B%E7%AE%80%E6%98%93%E4%BB%A3%E5%B8%81/">
+                <h3 class="media-heading">基于智能合约建立简易代币</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>接上一篇编写智能合约的教程<a href="http://blog.csdn.net/rectsuly/article/details/79028766">带你玩转以太坊智能合约的&rdquo;Hello World&rdquo;</a>，我们现在要建立一个简单的代币系统，具备最简单的转账和查询功能。
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://rectsuly.github.io/2018/01/%E5%B8%A6%E4%BD%A0%E7%8E%A9%E8%BD%AC%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E7%9A%84hello-world/">
+                <h3 class="media-heading">带你玩转以太坊智能合约的&#34;Hello World&#34;</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>手把手教你入门编写以太坊智能合约的&rdquo;Hello World&rdquo;。
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero=""
+         data-message-one=""
+         data-message-other="">
+         5 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://rectsuly.github.io/images/cover.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://rectsuly.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/rectsuly.github.io\/2018\/01\/%E5%9C%A8ubuntu%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%AE%89%E8%A3%85metamask%E4%BB%A5%E5%A4%AA%E5%9D%8A%E9%92%B1%E5%8C%85%E6%8F%92%E4%BB%B6\/';
+          
+            this.page.identifier = '\/2018\/01\/%E5%9C%A8ubuntu%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%AE%89%E8%A3%85metamask%E4%BB%A5%E5%A4%AA%E5%9D%8A%E9%92%B1%E5%8C%85%E6%8F%92%E4%BB%B6\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'hugo-tranquilpeak-theme';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+    
+  </body>
+</html>
+

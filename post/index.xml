@@ -6,127 +6,58 @@
     <description>Recent content in Posts on Sily&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 15 Jun 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 31 Jan 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rectsuly.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Welcome to Tranquilpeak 0.4.3-BETA</title>
-      <link>https://rectsuly.github.io/2015/06/welcome-to-tranquilpeak-0.4.3-beta/</link>
-      <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
+      <title>在Ubuntu环境中安装MetaMask以太坊钱包插件</title>
+      <link>https://rectsuly.github.io/2018/01/%E5%9C%A8ubuntu%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%AE%89%E8%A3%85metamask%E4%BB%A5%E5%A4%AA%E5%9D%8A%E9%92%B1%E5%8C%85%E6%8F%92%E4%BB%B6/</link>
+      <pubDate>Wed, 31 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://rectsuly.github.io/2015/06/welcome-to-tranquilpeak-0.4.3-beta/</guid>
-      <description>&lt;p&gt;Tranquilpeak is a gorgeous responsive theme for Hugo blog framework. It has many features and integrated services to improve user experience.
+      <guid>https://rectsuly.github.io/2018/01/%E5%9C%A8ubuntu%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%AE%89%E8%A3%85metamask%E4%BB%A5%E5%A4%AA%E5%9D%8A%E9%92%B1%E5%8C%85%E6%8F%92%E4%BB%B6/</guid>
+      <description>&lt;p&gt;MetaMask是一款浏览器插件钱包，不需下载安装客户端，只需添加至浏览器扩展程序即可使用，非常方便,并且可以很方便的调试和测试以太坊的智能合约。
 &lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Elements showcase</title>
-      <link>https://rectsuly.github.io/2015/05/elements-showcase/</link>
-      <pubDate>Thu, 28 May 2015 00:00:00 +0000</pubDate>
+      <title>Ubuntu系统中IPFS环境的配置</title>
+      <link>https://rectsuly.github.io/2018/01/ubuntu%E7%B3%BB%E7%BB%9F%E4%B8%ADipfs%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Wed, 17 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://rectsuly.github.io/2015/05/elements-showcase/</guid>
-      <description>&lt;p&gt;Check out how Tranquilpeak theme display well HTML elements (title, paragraph, blockquote, table and more..). It&amp;rsquo;s simple and elegant.
+      <guid>https://rectsuly.github.io/2018/01/ubuntu%E7%B3%BB%E7%BB%9F%E4%B8%ADipfs%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;p&gt;IPFS（InterPlanetaryFile System）是一个点对点的分布式超媒体分发协议，它整合了过去几年最好的分布式系统思路，为所有人提供全球统一的可寻址空间，包括Git、自证明文件系统SFS、BitTorrent和DHT，同时也被认为是最有可能取代HTTP的新一代互联网协议。
 &lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Cover image showcase</title>
-      <link>https://rectsuly.github.io/2015/05/cover-image-showcase/</link>
-      <pubDate>Wed, 13 May 2015 00:00:00 +0000</pubDate>
+      <title>基于智能合约建立标准代币</title>
+      <link>https://rectsuly.github.io/2018/01/%E5%9F%BA%E4%BA%8E%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BB%BA%E7%AB%8B%E6%A0%87%E5%87%86%E4%BB%A3%E5%B8%81/</link>
+      <pubDate>Fri, 12 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://rectsuly.github.io/2015/05/cover-image-showcase/</guid>
-      <description>&lt;p&gt;Tranquilpeak integrate a unique &amp;ldquo;cover image&amp;rdquo; feature. Open this post to see how this feature sublimate your article.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>highlighted code showcase</title>
-      <link>https://rectsuly.github.io/2015/03/highlighted-code-showcase/</link>
-      <pubDate>Mon, 23 Mar 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://rectsuly.github.io/2015/03/highlighted-code-showcase/</guid>
-      <description>&lt;p&gt;Tranquilpeak Hugo theme have its own theme to highlight source code. It&amp;rsquo;s based on GitHub theme: simple and elegant. Check out how it sublimate source codes.
+      <guid>https://rectsuly.github.io/2018/01/%E5%9F%BA%E4%BA%8E%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BB%BA%E7%AB%8B%E6%A0%87%E5%87%86%E4%BB%A3%E5%B8%81/</guid>
+      <description>&lt;p&gt;更进一步地，用React框架和OpenZeppelin函数库来建立兼容以太坊ERC20标准的加密货币。
 &lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Tags plugins showcase</title>
-      <link>https://rectsuly.github.io/2014/10/tags-plugins-showcase/</link>
-      <pubDate>Wed, 29 Oct 2014 00:00:00 +0000</pubDate>
+      <title>基于智能合约建立简易代币</title>
+      <link>https://rectsuly.github.io/2018/01/%E5%9F%BA%E4%BA%8E%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BB%BA%E7%AB%8B%E7%AE%80%E6%98%93%E4%BB%A3%E5%B8%81/</link>
+      <pubDate>Thu, 11 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://rectsuly.github.io/2014/10/tags-plugins-showcase/</guid>
-      <description>&lt;p&gt;This post is used to show how tag plugins are displayed. See &lt;a href=&#34;https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/docs/user.md#tags&#34;&gt;docs&lt;/a&gt; for more info.
+      <guid>https://rectsuly.github.io/2018/01/%E5%9F%BA%E4%BA%8E%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BB%BA%E7%AB%8B%E7%AE%80%E6%98%93%E4%BB%A3%E5%B8%81/</guid>
+      <description>&lt;p&gt;接上一篇编写智能合约的教程&lt;a href=&#34;http://blog.csdn.net/rectsuly/article/details/79028766&#34;&gt;带你玩转以太坊智能合约的&amp;rdquo;Hello World&amp;rdquo;&lt;/a&gt;，我们现在要建立一个简单的代币系统，具备最简单的转账和查询功能。
 &lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Hidden social section showcase</title>
-      <link>https://rectsuly.github.io/2014/08/hidden-social-section-showcase/</link>
-      <pubDate>Sun, 17 Aug 2014 00:00:00 +0000</pubDate>
+      <title>带你玩转以太坊智能合约的&#34;Hello World&#34;</title>
+      <link>https://rectsuly.github.io/2018/01/%E5%B8%A6%E4%BD%A0%E7%8E%A9%E8%BD%AC%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E7%9A%84hello-world/</link>
+      <pubDate>Wed, 10 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://rectsuly.github.io/2014/08/hidden-social-section-showcase/</guid>
-      <description>&lt;p&gt;This post is used to show how a site looks if the social section is hidden.
-&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Hidden tag section showcase</title>
-      <link>https://rectsuly.github.io/2014/08/hidden-tag-section-showcase/</link>
-      <pubDate>Sat, 16 Aug 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://rectsuly.github.io/2014/08/hidden-tag-section-showcase/</guid>
-      <description>&lt;p&gt;This post is used to show how a site looks if the tag section is hidden.
-&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Hidden pagination showcase</title>
-      <link>https://rectsuly.github.io/2014/08/hidden-pagination-showcase/</link>
-      <pubDate>Fri, 15 Aug 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://rectsuly.github.io/2014/08/hidden-pagination-showcase/</guid>
-      <description>&lt;p&gt;This post is used to show how a site looks if the pagination is hidden.
-&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Video integrations showcase</title>
-      <link>https://rectsuly.github.io/2014/08/video-integrations-showcase/</link>
-      <pubDate>Sat, 09 Aug 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://rectsuly.github.io/2014/08/video-integrations-showcase/</guid>
-      <description>&lt;p&gt;Youtube and Vimeo videos are easily integrated thanks to tags plugins. Of course, you can add video other platforms like dailymotion.
-&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>中文測試</title>
-      <link>https://rectsuly.github.io/2013/10/chinese-test/</link>
-      <pubDate>Wed, 02 Oct 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://rectsuly.github.io/2013/10/chinese-test/</guid>
-      <description>&lt;p&gt;This is a chinese test post to show you how chinese is displayed.
-&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Image gallery showcase</title>
-      <link>https://rectsuly.github.io/2013/02/image-gallery-showcase/</link>
-      <pubDate>Mon, 18 Feb 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://rectsuly.github.io/2013/02/image-gallery-showcase/</guid>
-      <description>&lt;p&gt;And here is the image gallery!
-&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>日本語テスト</title>
-      <link>https://rectsuly.github.io/2013/01/japanese-test/</link>
-      <pubDate>Wed, 02 Jan 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://rectsuly.github.io/2013/01/japanese-test/</guid>
-      <description>&lt;p&gt;This is a Japanese test post to show you how japanese is displayed.
+      <guid>https://rectsuly.github.io/2018/01/%E5%B8%A6%E4%BD%A0%E7%8E%A9%E8%BD%AC%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E7%9A%84hello-world/</guid>
+      <description>&lt;p&gt;手把手教你入门编写以太坊智能合约的&amp;rdquo;Hello World&amp;rdquo;。
 &lt;/p&gt;</description>
     </item>
     

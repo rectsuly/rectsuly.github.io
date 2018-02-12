@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ipfs on Sily&#39;s blog</title>
+    <link>https://rectsuly.github.io/tags/ipfs/</link>
+    <description>Recent content in Ipfs on Sily&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 17 Jan 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://rectsuly.github.io/tags/ipfs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ubuntu系统中IPFS环境的配置</title>
+      <link>https://rectsuly.github.io/2018/01/ubuntu%E7%B3%BB%E7%BB%9F%E4%B8%ADipfs%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Wed, 17 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://rectsuly.github.io/2018/01/ubuntu%E7%B3%BB%E7%BB%9F%E4%B8%ADipfs%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;p&gt;IPFS（InterPlanetaryFile System）是一个点对点的分布式超媒体分发协议，它整合了过去几年最好的分布式系统思路，为所有人提供全球统一的可寻址空间，包括Git、自证明文件系统SFS、BitTorrent和DHT，同时也被认为是最有可能取代HTTP的新一代互联网协议。
+&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,824 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+
+  
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.36 with theme Tranquilpeak 0.4.3-BETA">
+    <title>基于智能合约建立标准代币</title>
+    <meta name="author" content="Sily酱">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="https://rectsuly.github.io/favicon.png">
+    
+
+    
+    <meta name="description" content="更进一步地，用React框架和OpenZeppelin函数库来建立兼容以太坊ERC20标准的加密货币。
+">
+    <meta property="og:description" content="更进一步地，用React框架和OpenZeppelin函数库来建立兼容以太坊ERC20标准的加密货币。
+">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="基于智能合约建立标准代币">
+    <meta property="og:url" content="/2018/01/%E5%9F%BA%E4%BA%8E%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BB%BA%E7%AB%8B%E6%A0%87%E5%87%86%E4%BB%A3%E5%B8%81/">
+    <meta property="og:site_name" content="Sily&#39;s blog">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Sily&#39;s blog">
+    <meta name="twitter:description" content="更进一步地，用React框架和OpenZeppelin函数库来建立兼容以太坊ERC20标准的加密货币。
+">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="http://ox90kdrp0.bkt.clouddn.com/sily.jpg">
+    
+
+    
+      <meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20171012/43ec2e55ee3443249c1b9b8203758bf4.jpeg">
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://rectsuly.github.io/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://rectsuly.github.io/">Sily&#39;s blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://rectsuly.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="http://ox90kdrp0.bkt.clouddn.com/sily.jpg" alt="作者的图片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://rectsuly.github.io/#about">
+          <img class="sidebar-profile-picture" src="http://ox90kdrp0.bkt.clouddn.com/sily.jpg" alt="作者的图片" />
+        </a>
+        <h4 class="sidebar-profile-name">Sily酱</h4>
+        
+          <h5 class="sidebar-profile-bio">程序猿小哥哥一枚</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://rectsuly.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">首页</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://rectsuly.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">分类</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://rectsuly.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">标签</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://rectsuly.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">归档</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://rectsuly.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">关于</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/rectsuly" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://rectsuly.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      基于智能合约建立标准代币
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2018-01-12T00:00:00Z">
+        
+  一月 12, 2018
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://rectsuly.github.io/categories/blockchain">Blockchain</a>, 
+    
+      <a class="category-link" href="https://rectsuly.github.io/categories/ethereum">Ethereum</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>更进一步地，用React框架和OpenZeppelin函数库来建立兼容以太坊ERC20标准的加密货币。
+</p>
+
+<h2 id="1-创建项目">1.创建项目</h2>
+
+<p>在之前的简易代币创建中，我们使用了<code>truffle init</code>指令来初始化项目，在<code>Truffle</code>推出<code>Boxes</code>功能之后，我们可以直接套用称作<code>react-box</code>的样板，此样板已经整合<code>create-react-app</code>，可以直接用来开发<code>react web</code>，省下项目设置的时间。</p>
+
+<pre><code>sily@lyg-sily:~/SmartContractDemo/NenmoCoin$ truffle unbox react-box
+Downloading...
+Unpacking...
+Setting up...
+Unbox successful. Sweet!
+
+Commands:
+
+  Compile:              truffle compile
+  Migrate:              truffle migrate
+  Test contracts:       truffle test
+  Test dapp:            npm test
+  Run dev server:       npm run start
+  Build for production: npm run build
+sily@lyg-sily:~/SmartContractDemo/NenmoCoin$ npm run start
+
+&gt; react-box@0.1.0 start /home/sily/SmartContractDemo/NenmoCoin
+&gt; node scripts/start.js
+
+
+Starting the development server...
+</code></pre>
+
+<p>启动项目后用atom打开项目文件夹，得到目录结构如下：
+<img src="http://img.blog.csdn.net/20180112165411002?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcmVjdHN1bHk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="1" /></p>
+
+<p><code>/contracts</code>:存放智能合约原始代码的地方，可以看到里面已经有了两个<code>sol</code>文件，我们开发的<code>NenmoCoin.sol</code>也会放在这里。
+<code>/migrations</code>:这是<code>Truffle</code>用来部署智能合约的功能，我们会修改<code>2_deploy_contracts.js</code>代码来部署<code>NenmoCoin.sol</code>。
+/test:测试智能合约的代码放在这个目录下，支持<code>js</code>与<code>sol</code>测试。
+<code>/public</code>、<code>/src</code>:存放<code>react web</code>的地方，后面用到会说明。
+<code>truffle.js</code>:<code>Truffle</code>的设置文件。</p>
+
+<h2 id="2-开发前的准备">2.开发前的准备</h2>
+
+<p>1.打开另一个终端，启动<code>testrpc</code>，继续通过<code>testrpc</code>模拟以太坊区块链测试环境。
+2.创建的代币如果想要能够通过以太坊钱包来进行转账和收帐，必须兼容以太坊的<code>ERC20</code>标准，<code>ERC20</code>定义了支持钱包所必需的合约界面。
+3.安装<code>OpenZeppelin</code>来简化加密钱包开发的过程。<code>OpenZeppelin</code>是一套能够给我们方便提供编写加密合约的函数库，同时里面也提供了兼容<code>ERC20</code>的智能合约。
+命令如下：</p>
+
+<pre><code>npm install zeppelin-solidity
+</code></pre>
+
+<p>安装好后，在项目目录下的<code>node_modules</code>中的最后一个文件夹就是<code>zeppelin-solidity</code>，同时打开<code>package.json</code>，我们可以看到依赖包中多了<code>zeppelin-solidity</code>。
+<img src="http://img.blog.csdn.net/20180112172435176?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcmVjdHN1bHk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="2" /></p>
+
+<h2 id="3-创建标准代币-嫩模币">3.创建标准代币——嫩模币</h2>
+
+<p>在<code>contracts/</code>目录下新建一个<code>NenmoCoin.sol</code>文件，也可以使用<code>truffle create contract NenmoCoin</code>命令来创建。
+<code>NenmoCoin.sol</code>的代码如下：</p>
+
+<pre><code>pragma solidity ^0.4.4;
+import &quot;../node_modules/zeppelin-solidity/contracts/token/StandardToken.sol&quot;;
+
+contract NenmoCoin is StandardToken {
+  string public name = &quot;NenmoCoin&quot;;
+  string public symbol = &quot;NMB&quot;;
+  uint8 public decimals = 8;
+  uint256 public INITIAL_SUPPLY = 21000000;
+  function NenmoCoin() {
+    totalSupply = INITIAL_SUPPLY;
+    balances[msg.sender] = INITIAL_SUPPLY;
+  }
+}
+</code></pre>
+
+<p><code>import</code>语句表示导入我们需要适用到的<code>StandardToken</code>合约。</p>
+
+<p>建立<code>NenmoCoin</code>合约时，让<code>NenmoCoin</code>合约直接继承自<code>StandardToken</code>。<code>is</code>表示继承，所以<code>NenmoCoin</code>继承了<code>StandardToken</code>的所有状态数据和方法。此时，<code>NenmoCoin</code>合约支持了以下<code>ERC20</code>标准中规定的函数。</p>
+
+<p><img src="http://img.blog.csdn.net/20180112172621038?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcmVjdHN1bHk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="3" /></p>
+
+<p>后面我们使用<code>balanceOf</code>和<code>transfer</code>两个函数来验证，由于<code>StandardToken</code>合约中已经帮我们实现了这些函数，所以无需再从头写一次。</p>
+
+<p>其他变量指定了代币的一些特性，如代币名称（name）为NenmoCoin，符号（symbol）为NMB，最小分割单位为8（即最小交易额为0.00000001），代币发行总额为2100W。</p>
+
+<p>在合约的构造函数中，指定了<code>totalSupply</code>数目，并将所有的初始代币<code>INITIAL_SUPPLY</code>都指定给<code>msg.sender</code>账号，也就是用来部署这个合约的账号。<code>totalSupply</code>定义于<code>ERC20Basic.sol</code>中，<code>balances</code>定义于<code>BasicToken.sol</code>中。</p>
+
+<h2 id="4-编译-部署和验证">4.编译、部署和验证</h2>
+
+<p>在<code>migrations/</code>目录下建立一个<code>3_deploy_contracts.js</code>文件，内容如下：</p>
+
+<pre><code>var NenmoCoin = artifacts.require(&quot;./NenmoCoin.sol&quot;);
+
+module.exports = function(deployer) {
+  deployer.deploy(NenmoCoin);
+};
+</code></pre>
+
+<p>然后通过<code>truffle compile</code>命令进行编译：</p>
+
+<pre><code>sily@lyg-sily:~/SmartContractDemo/NenmoCoin$ truffle compile
+Compiling ./contracts/NenmoCoin.sol...
+Compiling ./node_modules/zeppelin-solidity/contracts/math/SafeMath.sol...
+Compiling ./node_modules/zeppelin-solidity/contracts/token/BasicToken.sol...
+Compiling ./node_modules/zeppelin-solidity/contracts/token/ERC20.sol...
+Compiling ./node_modules/zeppelin-solidity/contracts/token/ERC20Basic.sol...
+Compiling ./node_modules/zeppelin-solidity/contracts/token/StandardToken.sol...
+Writing artifacts to ./build/contracts
+</code></pre>
+
+<p><code>truffle migrate</code>部署：</p>
+
+<pre><code>sily@lyg-sily:~/SmartContractDemo/NenmoCoin/migrations$ truffle migrate
+Using network 'development'.
+
+Running migration: 1_initial_migration.js
+  Deploying Migrations...
+  ... 0x5fab008f0e3dfd8c5ee7711d47fcdfd8d4b37dc5847b359d98b18557818226a2
+  Migrations: 0xb0eadf909e51d23c22b303eb541f45e6b2aaf085
+Saving successful migration to network...
+  ... 0xfc2dbb91da5b18740f3e7b4c5ee2b3bb42e89c76f6381d76461bb54b4246279f
+Saving artifacts...
+Running migration: 2_deploy_contracts.js
+  Deploying SimpleStorage...
+  ... 0x4e2883a79ad4169e675e8b7b15241e2f217b960335f83a27a9185726b5ae135d
+  SimpleStorage: 0x5a4794ed9fa17eb0f6947442ae32ac1ffa450e79
+Saving successful migration to network...
+  ... 0xd3578c02c44ecb69ae08608dc475dee22632a65d92d7408e4b78d3fd51ef0d89
+Saving artifacts...
+Running migration: 3_deploy_contracts.js
+  Deploying NenmoCoin...
+  ... 0x79e6571e0fcfde55439e97b98dc9820c3e663c47b07aef5caf55f97bd2791010
+  NenmoCoin: 0x31a0d88a91043b5b2867963c2dade9f892645a5a
+Saving successful migration to network...
+  ... 0xe5bf92dae8453ecc2486d9bdf32a1f0b891fa338916b0e7258181042559ebbcd
+Saving artifacts...
+sily@lyg-sily:~/SmartContractDemo/NenmoCoin/migrations$
+</code></pre>
+
+<p>验证：</p>
+
+<pre><code>sily@lyg-sily:~/SmartContractDemo/NenmoCoin$ truffle console
+truffle(development)&gt; let contract
+undefined
+truffle(development)&gt; NenmoCoin.deployed().then(instance =&gt; contract = instance)
+……
+truffle(development)&gt; contract.balanceOf(web3.eth.coinbase)
+BigNumber { s: 1, e: 7, c: [ 21000000 ] }
+truffle(development)&gt; contract.balanceOf(web3.eth.accounts[1])
+BigNumber { s: 1, e: 0, c: [ 0 ] }
+truffle(development)&gt; contract.transfer(web3.eth.accounts[1],100)
+truffle(development)&gt; contract.balanceOf(web3.eth.coinbase)
+BigNumber { s: 1, e: 7, c: [ 20999900 ] }
+truffle(development)&gt; contract.balanceOf(web3.eth.accounts[1])
+BigNumber { s: 1, e: 2, c: [ 100 ] }
+truffle(development)&gt; contract.name.call()
+'NenmoCoin'
+truffle(development)&gt; contract.symbol.call()
+'NMB'
+</code></pre>
+
+<p>web端验证：</p>
+
+<pre><code>sily@lyg-sily:~/SmartContractDemo/NenmoCoin$ npm run start
+
+&gt; react-box@0.1.0 start /home/sily/SmartContractDemo/NenmoCoin
+&gt; node scripts/start.js
+
+
+
+
+
+Starting the development server...
+</code></pre>
+
+<p>由以上验证可知，我们成功建立了嫩模币，且设置了其初始发行数量为2100W，在以上建立过程中，主要用到了<code>OpenZeppelin</code>函数库来简化该加密货币的开发。如此一来，我们就写好了一个可通过以太币钱包交易的新加密代币合约。这个合约一经部署，就可以一直存在于以太坊区块链上，世界上从此也就多了一种新的加密代币——嫩模币。只要你能找到人想拥有这种代币，这种代币就有交易的价值。</p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://rectsuly.github.io/tags/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/">智能合约</a>
+
+                  </div>
+                
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://rectsuly.github.io/2018/01/ubuntu%E7%B3%BB%E7%BB%9F%E4%B8%ADipfs%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE/" data-tooltip="Ubuntu系统中IPFS环境的配置">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://rectsuly.github.io/2018/01/%E5%9F%BA%E4%BA%8E%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BB%BA%E7%AB%8B%E7%AE%80%E6%98%93%E4%BB%A3%E5%B8%81/" data-tooltip="基于智能合约建立简易代币">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rectsuly.github.io/2018/01/%E5%9F%BA%E4%BA%8E%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BB%BA%E7%AB%8B%E6%A0%87%E5%87%86%E4%BB%A3%E5%B8%81/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rectsuly.github.io/2018/01/%E5%9F%BA%E4%BA%8E%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BB%BA%E7%AB%8B%E6%A0%87%E5%87%86%E4%BB%A3%E5%B8%81/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rectsuly.github.io/2018/01/%E5%9F%BA%E4%BA%8E%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BB%BA%E7%AB%8B%E6%A0%87%E5%87%86%E4%BB%A3%E5%B8%81/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2018 Sily酱. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://rectsuly.github.io/2018/01/ubuntu%E7%B3%BB%E7%BB%9F%E4%B8%ADipfs%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE/" data-tooltip="Ubuntu系统中IPFS环境的配置">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://rectsuly.github.io/2018/01/%E5%9F%BA%E4%BA%8E%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BB%BA%E7%AB%8B%E7%AE%80%E6%98%93%E4%BB%A3%E5%B8%81/" data-tooltip="基于智能合约建立简易代币">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rectsuly.github.io/2018/01/%E5%9F%BA%E4%BA%8E%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BB%BA%E7%AB%8B%E6%A0%87%E5%87%86%E4%BB%A3%E5%B8%81/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rectsuly.github.io/2018/01/%E5%9F%BA%E4%BA%8E%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BB%BA%E7%AB%8B%E6%A0%87%E5%87%86%E4%BB%A3%E5%B8%81/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rectsuly.github.io/2018/01/%E5%9F%BA%E4%BA%8E%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BB%BA%E7%AB%8B%E6%A0%87%E5%87%86%E4%BB%A3%E5%B8%81/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frectsuly.github.io%2F2018%2F01%2F%25E5%259F%25BA%25E4%25BA%258E%25E6%2599%25BA%25E8%2583%25BD%25E5%2590%2588%25E7%25BA%25A6%25E5%25BB%25BA%25E7%25AB%258B%25E6%25A0%2587%25E5%2587%2586%25E4%25BB%25A3%25E5%25B8%2581%2F">
+          <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Frectsuly.github.io%2F2018%2F01%2F%25E5%259F%25BA%25E4%25BA%258E%25E6%2599%25BA%25E8%2583%25BD%25E5%2590%2588%25E7%25BA%25A6%25E5%25BB%25BA%25E7%25AB%258B%25E6%25A0%2587%25E5%2587%2586%25E4%25BB%25A3%25E5%25B8%2581%2F">
+          <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Frectsuly.github.io%2F2018%2F01%2F%25E5%259F%25BA%25E4%25BA%258E%25E6%2599%25BA%25E8%2583%25BD%25E5%2590%2588%25E7%25BA%25A6%25E5%25BB%25BA%25E7%25AB%258B%25E6%25A0%2587%25E5%2587%2586%25E4%25BB%25A3%25E5%25B8%2581%2F">
+          <i class="fa fa-google-plus"></i><span>分享到 Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="http://ox90kdrp0.bkt.clouddn.com/sily.jpg" alt="作者的图片" />
+    
+    <h4 id="about-card-name">Sily酱</h4>
+    
+      <div id="about-card-bio">程序猿小哥哥一枚</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        学生
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        合肥，安徽
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="搜索" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center"></div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://rectsuly.github.io/2018/01/%E5%9C%A8ubuntu%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%AE%89%E8%A3%85metamask%E4%BB%A5%E5%A4%AA%E5%9D%8A%E9%92%B1%E5%8C%85%E6%8F%92%E4%BB%B6/">
+                <h3 class="media-heading">在Ubuntu环境中安装MetaMask以太坊钱包插件</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>MetaMask是一款浏览器插件钱包，不需下载安装客户端，只需添加至浏览器扩展程序即可使用，非常方便,并且可以很方便的调试和测试以太坊的智能合约。
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://rectsuly.github.io/2018/01/ubuntu%E7%B3%BB%E7%BB%9F%E4%B8%ADipfs%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE/">
+                <h3 class="media-heading">Ubuntu系统中IPFS环境的配置</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>IPFS（InterPlanetaryFile System）是一个点对点的分布式超媒体分发协议，它整合了过去几年最好的分布式系统思路，为所有人提供全球统一的可寻址空间，包括Git、自证明文件系统SFS、BitTorrent和DHT，同时也被认为是最有可能取代HTTP的新一代互联网协议。
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://rectsuly.github.io/2018/01/%E5%9F%BA%E4%BA%8E%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BB%BA%E7%AB%8B%E6%A0%87%E5%87%86%E4%BB%A3%E5%B8%81/">
+                <h3 class="media-heading">基于智能合约建立标准代币</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>更进一步地，用React框架和OpenZeppelin函数库来建立兼容以太坊ERC20标准的加密货币。
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://rectsuly.github.io/2018/01/%E5%9F%BA%E4%BA%8E%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BB%BA%E7%AB%8B%E7%AE%80%E6%98%93%E4%BB%A3%E5%B8%81/">
+                <h3 class="media-heading">基于智能合约建立简易代币</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>接上一篇编写智能合约的教程<a href="http://blog.csdn.net/rectsuly/article/details/79028766">带你玩转以太坊智能合约的&rdquo;Hello World&rdquo;</a>，我们现在要建立一个简单的代币系统，具备最简单的转账和查询功能。
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://rectsuly.github.io/2018/01/%E5%B8%A6%E4%BD%A0%E7%8E%A9%E8%BD%AC%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E7%9A%84hello-world/">
+                <h3 class="media-heading">带你玩转以太坊智能合约的&#34;Hello World&#34;</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>手把手教你入门编写以太坊智能合约的&rdquo;Hello World&rdquo;。
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero=""
+         data-message-one=""
+         data-message-other="">
+         5 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://rectsuly.github.io/images/cover.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://rectsuly.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/rectsuly.github.io\/2018\/01\/%E5%9F%BA%E4%BA%8E%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BB%BA%E7%AB%8B%E6%A0%87%E5%87%86%E4%BB%A3%E5%B8%81\/';
+          
+            this.page.identifier = '\/2018\/01\/%E5%9F%BA%E4%BA%8E%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BB%BA%E7%AB%8B%E6%A0%87%E5%87%86%E4%BB%A3%E5%B8%81\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'hugo-tranquilpeak-theme';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+    
+  </body>
+</html>
+

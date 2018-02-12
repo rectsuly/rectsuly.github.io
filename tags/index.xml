@@ -6,206 +6,71 @@
     <description>Recent content in Tags on Sily&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 02 Oct 2013 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jan 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rectsuly.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Chinese</title>
-      <link>https://rectsuly.github.io/tags/chinese/</link>
-      <pubDate>Wed, 02 Oct 2013 00:00:00 +0000</pubDate>
+      <title>Ipfs</title>
+      <link>https://rectsuly.github.io/tags/ipfs/</link>
+      <pubDate>Wed, 17 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://rectsuly.github.io/tags/chinese/</guid>
+      <guid>https://rectsuly.github.io/tags/ipfs/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Cover Image</title>
-      <link>https://rectsuly.github.io/tags/cover-image/</link>
-      <pubDate>Wed, 13 May 2015 00:00:00 +0000</pubDate>
+      <title>Metamask</title>
+      <link>https://rectsuly.github.io/tags/metamask/</link>
+      <pubDate>Wed, 31 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://rectsuly.github.io/tags/cover-image/</guid>
+      <guid>https://rectsuly.github.io/tags/metamask/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Dailymotion</title>
-      <link>https://rectsuly.github.io/tags/dailymotion/</link>
-      <pubDate>Sat, 09 Aug 2014 00:00:00 +0000</pubDate>
+      <title>Solidity</title>
+      <link>https://rectsuly.github.io/tags/solidity/</link>
+      <pubDate>Wed, 10 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://rectsuly.github.io/tags/dailymotion/</guid>
+      <guid>https://rectsuly.github.io/tags/solidity/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Disqus</title>
-      <link>https://rectsuly.github.io/tags/disqus/</link>
-      <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
+      <title>Testrpc</title>
+      <link>https://rectsuly.github.io/tags/testrpc/</link>
+      <pubDate>Wed, 10 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://rectsuly.github.io/tags/disqus/</guid>
+      <guid>https://rectsuly.github.io/tags/testrpc/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Github Theme</title>
-      <link>https://rectsuly.github.io/tags/github-theme/</link>
-      <pubDate>Mon, 23 Mar 2015 00:00:00 +0000</pubDate>
+      <title>Truffle</title>
+      <link>https://rectsuly.github.io/tags/truffle/</link>
+      <pubDate>Wed, 10 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://rectsuly.github.io/tags/github-theme/</guid>
+      <guid>https://rectsuly.github.io/tags/truffle/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Google Analytics</title>
-      <link>https://rectsuly.github.io/tags/google-analytics/</link>
-      <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
+      <title>以太坊</title>
+      <link>https://rectsuly.github.io/tags/%E4%BB%A5%E5%A4%AA%E5%9D%8A/</link>
+      <pubDate>Wed, 10 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://rectsuly.github.io/tags/google-analytics/</guid>
+      <guid>https://rectsuly.github.io/tags/%E4%BB%A5%E5%A4%AA%E5%9D%8A/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Gravatar</title>
-      <link>https://rectsuly.github.io/tags/gravatar/</link>
-      <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
+      <title>智能合约</title>
+      <link>https://rectsuly.github.io/tags/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/</link>
+      <pubDate>Fri, 12 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://rectsuly.github.io/tags/gravatar/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hexo Theme</title>
-      <link>https://rectsuly.github.io/tags/hexo-theme/</link>
-      <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://rectsuly.github.io/tags/hexo-theme/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Highlight Code</title>
-      <link>https://rectsuly.github.io/tags/highlight-code/</link>
-      <pubDate>Mon, 23 Mar 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://rectsuly.github.io/tags/highlight-code/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Html Elements</title>
-      <link>https://rectsuly.github.io/tags/html-elements/</link>
-      <pubDate>Thu, 28 May 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://rectsuly.github.io/tags/html-elements/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Image Gallery</title>
-      <link>https://rectsuly.github.io/tags/image-gallery/</link>
-      <pubDate>Mon, 18 Feb 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://rectsuly.github.io/tags/image-gallery/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Japanese</title>
-      <link>https://rectsuly.github.io/tags/japanese/</link>
-      <pubDate>Wed, 02 Jan 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://rectsuly.github.io/tags/japanese/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Markdown</title>
-      <link>https://rectsuly.github.io/tags/markdown/</link>
-      <pubDate>Thu, 28 May 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://rectsuly.github.io/tags/markdown/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Pagination</title>
-      <link>https://rectsuly.github.io/tags/pagination/</link>
-      <pubDate>Fri, 15 Aug 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://rectsuly.github.io/tags/pagination/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Responsive</title>
-      <link>https://rectsuly.github.io/tags/responsive/</link>
-      <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://rectsuly.github.io/tags/responsive/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Social</title>
-      <link>https://rectsuly.github.io/tags/social/</link>
-      <pubDate>Sun, 17 Aug 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://rectsuly.github.io/tags/social/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tag Plugins</title>
-      <link>https://rectsuly.github.io/tags/tag-plugins/</link>
-      <pubDate>Wed, 29 Oct 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://rectsuly.github.io/tags/tag-plugins/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tags</title>
-      <link>https://rectsuly.github.io/tags/tags/</link>
-      <pubDate>Sat, 16 Aug 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://rectsuly.github.io/tags/tags/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Test</title>
-      <link>https://rectsuly.github.io/tags/test/</link>
-      <pubDate>Mon, 23 Mar 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://rectsuly.github.io/tags/test/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Videos Integration</title>
-      <link>https://rectsuly.github.io/tags/videos-integration/</link>
-      <pubDate>Sat, 09 Aug 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://rectsuly.github.io/tags/videos-integration/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Vimeo</title>
-      <link>https://rectsuly.github.io/tags/vimeo/</link>
-      <pubDate>Sat, 09 Aug 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://rectsuly.github.io/tags/vimeo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Youtube</title>
-      <link>https://rectsuly.github.io/tags/youtube/</link>
-      <pubDate>Sat, 09 Aug 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://rectsuly.github.io/tags/youtube/</guid>
+      <guid>https://rectsuly.github.io/tags/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/</guid>
       <description></description>
     </item>
     
