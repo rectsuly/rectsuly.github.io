@@ -6,10 +6,20 @@
     <description>Recent content on Sily&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 31 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 14 Feb 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rectsuly.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>最常用Git命令汇总</title>
+      <link>https://rectsuly.github.io/2018/02/%E6%9C%80%E5%B8%B8%E7%94%A8git%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/</link>
+      <pubDate>Wed, 14 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://rectsuly.github.io/2018/02/%E6%9C%80%E5%B8%B8%E7%94%A8git%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/</guid>
+      <description>&lt;p&gt;Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
+&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>在Ubuntu环境中安装MetaMask以太坊钱包插件</title>
