@@ -6,10 +6,20 @@
     <description>Recent content in Ipfs on Sily&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 17 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 26 Feb 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rectsuly.github.io/categories/ipfs/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>使用React前端框架结合js-ipfs-api实现IPFS的文本数据流传输</title>
+      <link>https://rectsuly.github.io/2018/02/%E4%BD%BF%E7%94%A8react%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E7%BB%93%E5%90%88js-ipfs-api%E5%AE%9E%E7%8E%B0ipfs%E7%9A%84%E6%96%87%E6%9C%AC%E6%95%B0%E6%8D%AE%E6%B5%81%E4%BC%A0%E8%BE%93/</link>
+      <pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://rectsuly.github.io/2018/02/%E4%BD%BF%E7%94%A8react%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E7%BB%93%E5%90%88js-ipfs-api%E5%AE%9E%E7%8E%B0ipfs%E7%9A%84%E6%96%87%E6%9C%AC%E6%95%B0%E6%8D%AE%E6%B5%81%E4%BC%A0%E8%BE%93/</guid>
+      <description>&lt;p&gt;通过React这个js前端框架来实现一个简易的页面，利用官方提供的js-ipfs-api，我们可以在页面的文本框中输入任意文本，然后提交上传到IPFS节点网络中，再利用hash参数把上传的文本数据显示出来。
+&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Ubuntu系统中IPFS环境的配置</title>

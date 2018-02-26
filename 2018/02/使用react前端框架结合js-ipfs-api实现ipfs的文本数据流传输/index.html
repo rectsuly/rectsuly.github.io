@@ -20,7 +20,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.36 with theme Tranquilpeak 0.4.3-BETA">
-    <title>在Ubuntu环境中安装MetaMask以太坊钱包插件</title>
+    <title>使用React前端框架结合js-ipfs-api实现IPFS的文本数据流传输</title>
     <meta name="author" content="Sily酱">
     <meta name="keywords" content="">
 
@@ -28,17 +28,17 @@
     
 
     
-    <meta name="description" content="MetaMask是一款浏览器插件钱包，不需下载安装客户端，只需添加至浏览器扩展程序即可使用，非常方便,并且可以很方便的调试和测试以太坊的智能合约。
+    <meta name="description" content="通过React这个js前端框架来实现一个简易的页面，利用官方提供的js-ipfs-api，我们可以在页面的文本框中输入任意文本，然后提交上传到IPFS节点网络中，再利用hash参数把上传的文本数据显示出来。
 ">
-    <meta property="og:description" content="MetaMask是一款浏览器插件钱包，不需下载安装客户端，只需添加至浏览器扩展程序即可使用，非常方便,并且可以很方便的调试和测试以太坊的智能合约。
+    <meta property="og:description" content="通过React这个js前端框架来实现一个简易的页面，利用官方提供的js-ipfs-api，我们可以在页面的文本框中输入任意文本，然后提交上传到IPFS节点网络中，再利用hash参数把上传的文本数据显示出来。
 ">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="在Ubuntu环境中安装MetaMask以太坊钱包插件">
-    <meta property="og:url" content="/2018/01/%E5%9C%A8ubuntu%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%AE%89%E8%A3%85metamask%E4%BB%A5%E5%A4%AA%E5%9D%8A%E9%92%B1%E5%8C%85%E6%8F%92%E4%BB%B6/">
+    <meta property="og:title" content="使用React前端框架结合js-ipfs-api实现IPFS的文本数据流传输">
+    <meta property="og:url" content="/2018/02/%E4%BD%BF%E7%94%A8react%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E7%BB%93%E5%90%88js-ipfs-api%E5%AE%9E%E7%8E%B0ipfs%E7%9A%84%E6%96%87%E6%9C%AC%E6%95%B0%E6%8D%AE%E6%B5%81%E4%BC%A0%E8%BE%93/">
     <meta property="og:site_name" content="Sily&#39;s blog">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Sily&#39;s blog">
-    <meta name="twitter:description" content="MetaMask是一款浏览器插件钱包，不需下载安装客户端，只需添加至浏览器扩展程序即可使用，非常方便,并且可以很方便的调试和测试以太坊的智能合约。
+    <meta name="twitter:description" content="通过React这个js前端框架来实现一个简易的页面，利用官方提供的js-ipfs-api，我们可以在页面的文本框中输入任意文本，然后提交上传到IPFS节点网络中，再利用hash参数把上传的文本数据显示出来。
 ">
     
     
@@ -51,7 +51,7 @@
     
 
     
-      <meta property="og:image" content="http://www.uuuu.cc/uploads/allimg/c180113/1515P63c42530-62204.jpg">
+      <meta property="og:image" content="http://ox90kdrp0.bkt.clouddn.com/pic/180226/E7IFFKJbH1.jpg?imageslim">
     
     
     
@@ -206,15 +206,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      在Ubuntu环境中安装MetaMask以太坊钱包插件
+      使用React前端框架结合js-ipfs-api实现IPFS的文本数据流传输
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-01-31T00:00:00Z">
+      <time itemprop="datePublished" datetime="2018-02-26T00:00:00Z">
         
-  一月 31, 2018
+  二月 26, 2018
 
       </time>
     
@@ -223,7 +223,9 @@
   
     <span>发布在</span>
     
-      <a class="category-link" href="https://rectsuly.github.io/categories/blockchain">Blockchain</a>
+      <a class="category-link" href="https://rectsuly.github.io/categories/blockchain">Blockchain</a>, 
+    
+      <a class="category-link" href="https://rectsuly.github.io/categories/ipfs">IPFS</a>
     
   
 
@@ -233,70 +235,368 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>MetaMask是一款浏览器插件钱包，不需下载安装客户端，只需添加至浏览器扩展程序即可使用，非常方便,并且可以很方便的调试和测试以太坊的智能合约。
+              <p>通过React这个js前端框架来实现一个简易的页面，利用官方提供的js-ipfs-api，我们可以在页面的文本框中输入任意文本，然后提交上传到IPFS节点网络中，再利用hash参数把上传的文本数据显示出来。
 </p>
 
-<h4 id="1-安装-google-chrome-浏览器">1.安装<code>Google Chrome</code>浏览器</h4>
+<h5 id="react简介及安装">React简介及安装</h5>
 
-<p>首先下载安装包：</p>
+<p>React是由Facebook和Instagram来开发的一种用来创建用户界面的JavaScript库。</p>
 
-<pre><code>$ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+<p>React的简单入门见<a href="https://reactjs.org/tutorial/tutorial.html">https://reactjs.org/tutorial/tutorial.html</a></p>
+
+<p>首先你要保证电脑上已经安装了Node.js的最近版本，然后可以根据安装教程来创建新项目。</p>
+
+<pre><code>npm install -g create-react-app
 </code></pre>
 
-<p>由于在进行解压安装包的时候，可能会发生——“在处理时有错误发生： google-chrome-stable”这个错误，因此我们先执行一条额外的命令：执行：<code>apt-get -f install</code>  。最后执行以下命令：</p>
-
-<pre><code>$ dpkg -i google-chrome-stable_current_amd64.deb
+<pre><code>sily@lyg-sily:~$ npm install -g create-react-app
+/home/sily/.nvm/nvm/versions/node/v9.3.0/bin/create-react-app -&gt; /home/sily/.nvm/nvm/versions/node/v9.3.0/lib/node_modules/create-react-app/index.js
++ create-react-app@1.5.2
+added 114 packages in 26.067s
+sily@lyg-sily:~$ create-react-app --version
+1.5.2
 </code></pre>
 
-<p>完毕后可在<code>Ubuntu</code>中搜索<code>Chrome</code>关键字找到下载好的浏览器，打开并固定到图标栏。</p>
+<h5 id="react项目创建">React项目创建</h5>
 
-<h4 id="2-下载metamask插件">2.下载MetaMask插件</h4>
+<pre><code>sily@lyg-sily:~$ create-react-app ipfs-demo
 
-<p>在<code>Chrome</code>浏览器中——获取更多扩展程序，搜索<code>MetaMask</code>即可（需要科学上网，自行解决，笔者用的是<code>WindScribe</code>），<code>MetaMask</code>的下载网址为<a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=zh-CN">https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=zh-CN</a>
-安装完毕后，在浏览器上会显示该插件的狐狸小图标，点击小狐狸图标，会出现<code>MetaMask</code>的主操作界面：
-<img src="http://img.blog.csdn.net/20180131153241066?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcmVjdHN1bHk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="1" /></p>
+Creating a new React app in /home/sily/ipfs-demo.
 
-<p>我们可以使用<code>MetaMask</code>钱包申请创建一个新的以太坊钱包，不过通过这种方式创建的钱包是通过助记词来作为钱包备份恢复手段的，只能通过<code>MetaMask</code>钱包来恢复。所以在这里我们不通过<code>MetaMask</code>钱包来创建以太坊账号，而是在<code>MyEtherWallet</code>网站上申请创建。打开<a href="https://www.myetherwallet.com/">https://www.myetherwallet.com/</a> ，在<code>Create New Wallet</code>面板中输入密码，然后下载保存<code>Keystore</code>文件，作为以后备份恢复钱包的手段。</p>
+Installing packages. This might take a couple of minutes.
+Installing react, react-dom, and react-scripts...
 
-<p>保存备份好以太坊钱包账户后，打开<code>MetaMask</code>，先随便输入密码进入主界面，然后点击右上角图标进入子菜单，点击<code>Import Account</code>导入我们之前申请的<code>MyEtherWallet</code>钱包账户：</p>
 
-<p><img src="http://img.blog.csdn.net/20180131153350538?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcmVjdHN1bHk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="2" /></p>
+&gt; uglifyjs-webpack-plugin@0.4.6 postinstall /home/sily/ipfs-demo/node_modules/uglifyjs-webpack-plugin
+&gt; node lib/post_install.js
 
-<p>导入方式为<code>JSON File</code>，在这里有个坑，由于<code>MetaMask</code>插件在<code>Ubuntu</code>系统的<code>Chrome</code>浏览器中有未修复的bug，不能直接通过插件来导入<code>Json</code>文件。先打开<code>extension://nkbihfbeogaeaoehlefnkodbefgpgknn/popup.html</code>，在新标签的扩展程序页面中进行导入。</p>
++ react-scripts@1.1.1
++ react@16.2.0
++ react-dom@16.2.0
+added 1155 packages in 131.72s
 
-<p>完成以后，我们可以看到之前创建好的钱包已经导入到<code>MetaMask</code>中，此时以太币余额为0eth。点击左上角图标切换到测试网络中（第一个是以太网主网络），然后点击<code>BUY</code>按钮，利用<code>ROPSTEN TEST FAUCET</code>获取测试币。由于是测试网络，所以购买不需要花费钱。</p>
+Success! Created ipfs-demo at /home/sily/ipfs-demo
+Inside that directory, you can run several commands:
 
-<p><img src="http://img.blog.csdn.net/20180131153511193?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcmVjdHN1bHk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="3" /></p>
+  npm start
+    Starts the development server.
 
-<p>我们可以从<code>faucet</code>账户中获取到ether，点击1次获取1eher的币，也可以点击下面的黄色按钮向faucet账户转账1、10或者100个ether。然后再返回我们的<code>MetaMask</code>插件，就可以看到钱包中有了代币。</p>
+  npm run build
+    Bundles the app into static files for production.
 
-<h4 id="3-通过metamask钱包在remix编译器上运行solidity智能合约">3.通过MetaMask钱包在remix编译器上运行Solidity智能合约</h4>
+  npm test
+    Starts the test runner.
 
-<p>打开浏览器编译器Remix：<a href="http://remix.ethereum.org，先输入以下HelloWorld测试代码，该代码中包含1个update()函数，传递amount参数，可以向账户中转账。">http://remix.ethereum.org，先输入以下HelloWorld测试代码，该代码中包含1个update()函数，传递amount参数，可以向账户中转账。</a></p>
+  npm run eject
+    Removes this tool and copies build dependencies, configuration files
+    and scripts into the app directory. If you do this, you can’t go back!
 
-<p><img src="http://img.blog.csdn.net/20180131153610767?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcmVjdHN1bHk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="4" /></p>
+We suggest that you begin by typing:
 
-<p>打开右边工具栏中的<code>Run</code>选项卡，在<code>Environment</code>中切换成<code>Injected Web3</code>，这就是我们的<code>MetaMask</code>钱包里面的测试网络。相应地，账户地址也变成了我们之前创建的以太坊钱包地址0x80e&hellip;70df6，可以看到当前剩余测试代币数量为11.990（原本是12个的，转账操作消耗了gas）。</p>
+  cd ipfs-demo
+  npm start
 
-<p>然后我们点击<code>Run</code>下方的<code>Create</code>按钮，会在浏览器左边弹出<code>MetaMask</code>的交易确认消息框：</p>
+Happy hacking!
+</code></pre>
 
-<p><img src="http://img.blog.csdn.net/20180131153706597?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcmVjdHN1bHk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="5" /></p>
+<p>在项目根目录输入<code>npm start</code>命令，查看项目在浏览器的显示效果：</p>
 
-<p>原因是我们在以太坊测试网络中部署智能合约也要消耗一定量的gas矿工费，点击<code>SUBMIT</code>确定，稍等片刻，我们的智能合约就布署好了。</p>
+<p><img src="http://ox90kdrp0.bkt.clouddn.com/pic/180226/d2J3004igA.png?imageslim" alt="mark" /></p>
 
-<p><img src="http://img.blog.csdn.net/20180131153744915?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcmVjdHN1bHk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="6" /></p>
+<h5 id="安装js-ipfs-api">安装js-ipfs-api</h5>
 
-<p>在合约地址下方会出现update()函数及其参数框，输入2，确认，可以看到这里的update()操作也是需要修改区块链上数据并且需要消耗手续费的，所以在浏览器左边继续弹出交易信息确认框，点击确认。在<code>MetaMask</code>中，还可以查看每一笔交易的信息：</p>
+<pre><code>npm install --save ipfs-api
+</code></pre>
 
-<p><img src="http://img.blog.csdn.net/20180131153822534?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcmVjdHN1bHk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="7" /></p>
+<p>安装成功会在项目node_modules目录下多出ipfs-api文件夹，在package.json下增加依赖包信息：</p>
 
-<p>那么，我们如何知道我们刚才点击的update()函数是否生效呢？在代码区的下方，是控制台，可以看到，交易完成后，在以太坊测试网络中会有新的区块产生，并且返回数据：</p>
+<p><img src="http://ox90kdrp0.bkt.clouddn.com/pic/180226/4532cK5J5c.png?imageslim" alt="mark" /></p>
 
-<p><img src="http://img.blog.csdn.net/20180131153849236?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcmVjdHN1bHk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="8" /></p>
+<h5 id="添加ui逻辑">添加UI逻辑</h5>
 
-<p>value的值为10^18Wei，即1ether（Wei是以太坊的最小单位，含义是为了纪念戴伟这个密码学专家大牛）。</p>
+<p>修改<code>src/App.js</code>里面的代码，主要是<code>render()</code>中的页面布局:</p>
 
-<p>到此为止，我们就完成了<code>MetaMask</code>钱包插件的安装及简单使用，当然，在后续开发过程中，我们也可以将<code>MetaMask</code>钱包的网络切换到公网或者自己创建的私链。</p>
+<pre><code>import React, { Component } from 'react';
+import './App.css';
+
+class App extends Component {
+
+
+      constructor(props) {
+          super(props);
+          this.state = {
+            strHash: null,
+            strContent: null
+          }
+      }
+
+    render() {
+      return (
+        &lt;div className=&quot;App&quot;&gt;
+          &lt;input
+            ref=&quot;ipfsContent&quot;
+            style=/&gt;
+          &lt;button onClick={() =&gt; {
+            let ipfsContent = this.refs.ipfsContent.value;
+            console.log(ipfsContent);
+          }}&gt;提交到IPFS&lt;/button&gt;
+
+          &lt;p&gt;{this.state.strHash}&lt;/p&gt;
+
+          &lt;button onClick={() =&gt; {
+            console.log('从ipfs读取数据。')
+           }}&gt;读取数据&lt;/button&gt;
+           &lt;h1&gt;{this.state.strContent}&lt;/h1&gt;
+        &lt;/div&gt;
+      );
+    }
+}
+
+export default App;
+</code></pre>
+
+<p>以上代码实现的功能是，当在输入框中输入文本时，再点击<strong>提交到IPFS</strong>按钮，将文本框中的内容取出来打印，后续需要将这个数据上传到<code>IPFS</code>。点击<strong>读取数据</strong>按钮，控制台打印出字符串，后面需要从<code>IPFS</code>读取数据，然后将读取的数据存储到状态机变量<code>strContent</code>中并展示出来。</p>
+
+<h5 id="导入ipfs">导入IPFS</h5>
+
+<pre><code>const ipfsAPI = require('ipfs-api');
+const ipfs = ipfs = ipfsAPI({host: 'localhost', port: '5001', protocol: 'http'});
+</code></pre>
+
+<h5 id="编写上传大文本字符串到ipfs的promise函数">编写上传大文本字符串到IPFS的Promise函数</h5>
+
+<pre><code>saveTextBlobOnIpfs = (blob) =&gt; {
+    return new Promise(function(resolve, reject) {
+      const descBuffer = Buffer.from(blob, 'utf-8');
+      ipfs.add(descBuffer).then((response) =&gt; {
+        console.log(response)
+        resolve(response[0].hash);
+      }).catch((err) =&gt; {
+        console.error(err)
+        reject(err);
+      })
+    })
+  }
+
+</code></pre>
+
+<p><code>response[0].hash</code>返回的是数据上传到<code>IPFS</code>后返回的<code>HASH</code>字符串。</p>
+
+<h5 id="上传数据到ipfs">上传数据到IPFS</h5>
+
+<pre><code>this.saveTextBlobOnIpfs(ipfsContent).then((hash) =&gt; {
+    console.log(hash);
+    this.setState({strHash: hash});
+});
+
+</code></pre>
+
+<p><code>ipfsContent</code>是从文本框中取到的数据，调用<code>this.saveTextBlobOnIpfs</code>方法将数据上传后，会返回字符串<code>hash</code>，并且将<code>hash</code>存储到状态机变量<code>strHash</code>中。</p>
+
+<h5 id="跨域资源共享cors配置">跨域资源共享CORS配置</h5>
+
+<p>跨域资源共享<code>(CORS)</code>配置，依次在终端执行以下代码：</p>
+
+<pre><code>$ ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '[&quot;PUT&quot;, &quot;GET&quot;, &quot;POST&quot;, &quot;OPTIONS&quot;]'
+
+$ ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '[&quot;*&quot;]'
+
+$ ipfs config --json API.HTTPHeaders.Access-Control-Allow-Credentials '[&quot;true&quot;]'
+
+$ ipfs config --json API.HTTPHeaders.Access-Control-Allow-Headers '[&quot;Authorization&quot;]'
+
+$ ipfs config --json API.HTTPHeaders.Access-Control-Expose-Headers '[&quot;Location&quot;]'
+
+</code></pre>
+
+<h5 id="用正确的端口运行-daemon">用正确的端口运行<code>daemon</code></h5>
+
+<pre><code>$ ipfs config Addresses.API
+/ip4/127.0.0.1/tcp/5001
+$ ipfs config Addresses.API /ip4/127.0.0.1/tcp/5001
+$ ipfs daemon
+</code></pre>
+
+<h5 id="从ipfs读取数据">从IPFS读取数据</h5>
+
+<pre><code>ipfs.cat(this.state.strHash).then((stream) =&gt; {
+    console.log(stream);
+    let strContent = Utf8ArrayToStr(stream);
+    console.log(strContent);
+    this.setState({strContent: strContent});
+});
+
+</code></pre>
+
+<p>编写<code>Utf8ArrayToStr()</code>方法将<code>Uint8Array</code>类型的<code>stream</code>变量转换成<code>string</code>字符串：</p>
+
+<pre><code>function Utf8ArrayToStr(array) {
+  var out, i, len, c;
+  var char2, char3;
+  out = &quot;&quot;;
+  len = array.length;
+  i = 0;
+  while(i &lt; len) {
+    c = array[i++];
+    switch(c &gt;&gt; 4) {
+      case 0:
+      case 1:
+      case 2:
+      case 3:
+      case 4:
+      case 5:
+      case 6:
+      case 7:
+        // 0xxxxxxx
+        out += String.fromCharCode(c);
+        break;
+      case 12:
+      case 13:
+        // 110x xxxx 10xx xxxx
+        char2 = array[i++];
+        out += String.fromCharCode(((c &amp; 0x1F) &lt;&lt; 6) | (char2 &amp; 0x3F));
+        break;
+      case 14:
+        // 1110 xxxx 10xx xxxx 10xx xxxx
+        char2 = array[i++];
+        char3 = array[i++];
+        out += String.fromCharCode(((c &amp; 0x0F) &lt;&lt; 12) | ((char2 &amp; 0x3F) &lt;&lt; 6) | ((char3 &amp; 0x3F) &lt;&lt; 0));
+        break;
+      default:
+        break;
+    }
+  }
+  return out;
+}
+</code></pre>
+
+<p>最终完整的<code>App.js</code>代码如下：</p>
+
+<pre><code>import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+
+const ipfsAPI = require('ipfs-api');
+const ipfs = ipfsAPI({host:'localhost', port:'5001', protocal:'http'});
+
+function Utf8ArrayToStr(array) {
+  var out, i, len, c;
+  var char2, char3;
+  out = &quot;&quot;;
+  len = array.length;
+  i = 0;
+  while(i &lt; len) {
+    c = array[i++];
+    switch(c &gt;&gt; 4) {
+      case 0:
+      case 1:
+      case 2:
+      case 3:
+      case 4:
+      case 5:
+      case 6:
+      case 7:
+        // 0xxxxxxx
+        out += String.fromCharCode(c);
+        break;
+      case 12:
+      case 13:
+        // 110x xxxx 10xx xxxx
+        char2 = array[i++];
+        out += String.fromCharCode(((c &amp; 0x1F) &lt;&lt; 6) | (char2 &amp; 0x3F));
+        break;
+      case 14:
+        // 1110 xxxx 10xx xxxx 10xx xxxx
+        char2 = array[i++];
+        char3 = array[i++];
+        out += String.fromCharCode(((c &amp; 0x0F) &lt;&lt; 12) | ((char2 &amp; 0x3F) &lt;&lt; 6) | ((char3 &amp; 0x3F) &lt;&lt; 0));
+        break;
+      default:
+        break;
+    }
+  }
+  return out;
+}
+
+class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      strHash: null,
+      strContent: null
+    }
+  }
+
+  saveTextBlobOnIpfs = (blob) =&gt; {
+    return new Promise(function(resolve, reject) {
+      const descBuffer = Buffer.from(blob, 'utf-8');
+      ipfs.add(descBuffer).then((response) =&gt; {
+        console.log(response)
+        resolve(response[0].hash);
+      }).catch((err) =&gt; {
+        console.error(err)
+        reject(err);
+      })
+    })
+  }
+
+  render() {
+    return (
+      &lt;div className=&quot;App&quot;&gt;
+        &lt;input
+          ref=&quot;ipfsContent&quot;
+          style={{width:200,height:30}}/&gt;
+        &lt;button onClick={() =&gt; {
+          let ipfsContent = this.refs.ipfsContent.value;
+          console.log(ipfsContent);
+          this.saveTextBlobOnIpfs(ipfsContent).then((hash) =&gt; {
+            console.log(hash);
+            this.setState({strHash: hash});
+          });
+        }}&gt;提交到IPFS&lt;/button&gt;
+
+        &lt;p&gt;{this.state.strHash}&lt;/p&gt;
+
+        &lt;button onClick={() =&gt; {
+          console.log('从ipfs读取数据')
+          ipfs.cat(this.state.strHash).then((stream) =&gt; {
+            console.log(stream);
+            let strContent = Utf8ArrayToStr(stream);
+            console.log(strContent);
+            this.setState({strContent: strContent});
+          });
+        }}&gt;读取数据&lt;/button&gt;
+        &lt;h1&gt;{this.state.strContent}&lt;/h1&gt;
+        &lt;header className=&quot;App-header&quot;&gt;
+          &lt;img src={logo} className=&quot;App-logo&quot; alt=&quot;logo&quot; /&gt;
+          &lt;h1 className=&quot;App-title&quot;&gt;Welcome to React&lt;/h1&gt;
+        &lt;/header&gt;
+        &lt;p className=&quot;App-intro&quot;&gt;
+          To get started, edit &lt;code&gt;src/App.js&lt;/code&gt; and save to reload.
+        &lt;/p&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+export default App;
+
+</code></pre>
+
+<h5 id="运行效果测试">运行效果测试</h5>
+
+<p><img src="http://ox90kdrp0.bkt.clouddn.com/pic/180226/26EAEJJL5f.gif" alt="mark" /></p>
+
+<h5 id="参考">参考</h5>
+
+<ul>
+<li><p><a href="https://reactjs.org/tutorial/tutorial.html">https://reactjs.org/tutorial/tutorial.html</a></p></li>
+
+<li><p><a href="https://github.com/ipfs/js-ipfs-api/blob/master/README.md">https://github.com/ipfs/js-ipfs-api/blob/master/README.md</a></p></li>
+
+<li><p><a href="http://www.liyuechun.org/2017/11/22/ipfs-api/">http://www.liyuechun.org/2017/11/22/ipfs-api/</a></p></li>
+</ul>
               
             </div>
           </div>
@@ -308,7 +608,7 @@
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">标签</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://rectsuly.github.io/tags/metamask/">MetaMask</a>
+  <a class="tag tag--primary tag--small" href="https://rectsuly.github.io/tags/ipfs/">IPFS</a>
 
                   </div>
                 
@@ -321,7 +621,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://rectsuly.github.io/2018/02/%E6%9C%80%E5%B8%B8%E7%94%A8git%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/" data-tooltip="最常用Git命令汇总">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -329,7 +629,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://rectsuly.github.io/2018/01/ubuntu%E7%B3%BB%E7%BB%9F%E4%B8%ADipfs%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE/" data-tooltip="Ubuntu系统中IPFS环境的配置">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://rectsuly.github.io/2018/02/%E6%9C%80%E5%B8%B8%E7%94%A8git%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/" data-tooltip="最常用Git命令汇总">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -347,19 +647,19 @@
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rectsuly.github.io/2018/01/%E5%9C%A8ubuntu%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%AE%89%E8%A3%85metamask%E4%BB%A5%E5%A4%AA%E5%9D%8A%E9%92%B1%E5%8C%85%E6%8F%92%E4%BB%B6/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rectsuly.github.io/2018/02/%E4%BD%BF%E7%94%A8react%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E7%BB%93%E5%90%88js-ipfs-api%E5%AE%9E%E7%8E%B0ipfs%E7%9A%84%E6%96%87%E6%9C%AC%E6%95%B0%E6%8D%AE%E6%B5%81%E4%BC%A0%E8%BE%93/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rectsuly.github.io/2018/01/%E5%9C%A8ubuntu%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%AE%89%E8%A3%85metamask%E4%BB%A5%E5%A4%AA%E5%9D%8A%E9%92%B1%E5%8C%85%E6%8F%92%E4%BB%B6/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rectsuly.github.io/2018/02/%E4%BD%BF%E7%94%A8react%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E7%BB%93%E5%90%88js-ipfs-api%E5%AE%9E%E7%8E%B0ipfs%E7%9A%84%E6%96%87%E6%9C%AC%E6%95%B0%E6%8D%AE%E6%B5%81%E4%BC%A0%E8%BE%93/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rectsuly.github.io/2018/01/%E5%9C%A8ubuntu%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%AE%89%E8%A3%85metamask%E4%BB%A5%E5%A4%AA%E5%9D%8A%E9%92%B1%E5%8C%85%E6%8F%92%E4%BB%B6/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rectsuly.github.io/2018/02/%E4%BD%BF%E7%94%A8react%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E7%BB%93%E5%90%88js-ipfs-api%E5%AE%9E%E7%8E%B0ipfs%E7%9A%84%E6%96%87%E6%9C%AC%E6%95%B0%E6%8D%AE%E6%B5%81%E4%BC%A0%E8%BE%93/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -407,7 +707,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://rectsuly.github.io/2018/02/%E6%9C%80%E5%B8%B8%E7%94%A8git%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/" data-tooltip="最常用Git命令汇总">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -415,7 +715,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://rectsuly.github.io/2018/01/ubuntu%E7%B3%BB%E7%BB%9F%E4%B8%ADipfs%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE/" data-tooltip="Ubuntu系统中IPFS环境的配置">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://rectsuly.github.io/2018/02/%E6%9C%80%E5%B8%B8%E7%94%A8git%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/" data-tooltip="最常用Git命令汇总">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -433,19 +733,19 @@
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rectsuly.github.io/2018/01/%E5%9C%A8ubuntu%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%AE%89%E8%A3%85metamask%E4%BB%A5%E5%A4%AA%E5%9D%8A%E9%92%B1%E5%8C%85%E6%8F%92%E4%BB%B6/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rectsuly.github.io/2018/02/%E4%BD%BF%E7%94%A8react%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E7%BB%93%E5%90%88js-ipfs-api%E5%AE%9E%E7%8E%B0ipfs%E7%9A%84%E6%96%87%E6%9C%AC%E6%95%B0%E6%8D%AE%E6%B5%81%E4%BC%A0%E8%BE%93/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rectsuly.github.io/2018/01/%E5%9C%A8ubuntu%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%AE%89%E8%A3%85metamask%E4%BB%A5%E5%A4%AA%E5%9D%8A%E9%92%B1%E5%8C%85%E6%8F%92%E4%BB%B6/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rectsuly.github.io/2018/02/%E4%BD%BF%E7%94%A8react%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E7%BB%93%E5%90%88js-ipfs-api%E5%AE%9E%E7%8E%B0ipfs%E7%9A%84%E6%96%87%E6%9C%AC%E6%95%B0%E6%8D%AE%E6%B5%81%E4%BC%A0%E8%BE%93/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rectsuly.github.io/2018/01/%E5%9C%A8ubuntu%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%AE%89%E8%A3%85metamask%E4%BB%A5%E5%A4%AA%E5%9D%8A%E9%92%B1%E5%8C%85%E6%8F%92%E4%BB%B6/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rectsuly.github.io/2018/02/%E4%BD%BF%E7%94%A8react%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E7%BB%93%E5%90%88js-ipfs-api%E5%AE%9E%E7%8E%B0ipfs%E7%9A%84%E6%96%87%E6%9C%AC%E6%95%B0%E6%8D%AE%E6%B5%81%E4%BC%A0%E8%BE%93/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -475,19 +775,19 @@
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frectsuly.github.io%2F2018%2F01%2F%25E5%259C%25A8ubuntu%25E7%258E%25AF%25E5%25A2%2583%25E4%25B8%25AD%25E5%25AE%2589%25E8%25A3%2585metamask%25E4%25BB%25A5%25E5%25A4%25AA%25E5%259D%258A%25E9%2592%25B1%25E5%258C%2585%25E6%258F%2592%25E4%25BB%25B6%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frectsuly.github.io%2F2018%2F02%2F%25E4%25BD%25BF%25E7%2594%25A8react%25E5%2589%258D%25E7%25AB%25AF%25E6%25A1%2586%25E6%259E%25B6%25E7%25BB%2593%25E5%2590%2588js-ipfs-api%25E5%25AE%259E%25E7%258E%25B0ipfs%25E7%259A%2584%25E6%2596%2587%25E6%259C%25AC%25E6%2595%25B0%25E6%258D%25AE%25E6%25B5%2581%25E4%25BC%25A0%25E8%25BE%2593%2F">
           <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Frectsuly.github.io%2F2018%2F01%2F%25E5%259C%25A8ubuntu%25E7%258E%25AF%25E5%25A2%2583%25E4%25B8%25AD%25E5%25AE%2589%25E8%25A3%2585metamask%25E4%25BB%25A5%25E5%25A4%25AA%25E5%259D%258A%25E9%2592%25B1%25E5%258C%2585%25E6%258F%2592%25E4%25BB%25B6%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Frectsuly.github.io%2F2018%2F02%2F%25E4%25BD%25BF%25E7%2594%25A8react%25E5%2589%258D%25E7%25AB%25AF%25E6%25A1%2586%25E6%259E%25B6%25E7%25BB%2593%25E5%2590%2588js-ipfs-api%25E5%25AE%259E%25E7%258E%25B0ipfs%25E7%259A%2584%25E6%2596%2587%25E6%259C%25AC%25E6%2595%25B0%25E6%258D%25AE%25E6%25B5%2581%25E4%25BC%25A0%25E8%25BE%2593%2F">
           <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Frectsuly.github.io%2F2018%2F01%2F%25E5%259C%25A8ubuntu%25E7%258E%25AF%25E5%25A2%2583%25E4%25B8%25AD%25E5%25AE%2589%25E8%25A3%2585metamask%25E4%25BB%25A5%25E5%25A4%25AA%25E5%259D%258A%25E9%2592%25B1%25E5%258C%2585%25E6%258F%2592%25E4%25BB%25B6%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Frectsuly.github.io%2F2018%2F02%2F%25E4%25BD%25BF%25E7%2594%25A8react%25E5%2589%258D%25E7%25AB%25AF%25E6%25A1%2586%25E6%259E%25B6%25E7%25BB%2593%25E5%2590%2588js-ipfs-api%25E5%25AE%259E%25E7%258E%25B0ipfs%25E7%259A%2584%25E6%2596%2587%25E6%259C%25AC%25E6%2595%25B0%25E6%258D%25AE%25E6%25B5%2581%25E4%25BC%25A0%25E8%25BE%2593%2F">
           <i class="fa fa-google-plus"></i><span>分享到 Google&#43;</span>
         </a>
       </li>
@@ -719,9 +1019,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/rectsuly.github.io\/2018\/01\/%E5%9C%A8ubuntu%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%AE%89%E8%A3%85metamask%E4%BB%A5%E5%A4%AA%E5%9D%8A%E9%92%B1%E5%8C%85%E6%8F%92%E4%BB%B6\/';
+          this.page.url = 'https:\/\/rectsuly.github.io\/2018\/02\/%E4%BD%BF%E7%94%A8react%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E7%BB%93%E5%90%88js-ipfs-api%E5%AE%9E%E7%8E%B0ipfs%E7%9A%84%E6%96%87%E6%9C%AC%E6%95%B0%E6%8D%AE%E6%B5%81%E4%BC%A0%E8%BE%93\/';
           
-            this.page.identifier = '\/2018\/01\/%E5%9C%A8ubuntu%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%AE%89%E8%A3%85metamask%E4%BB%A5%E5%A4%AA%E5%9D%8A%E9%92%B1%E5%8C%85%E6%8F%92%E4%BB%B6\/'
+            this.page.identifier = '\/2018\/02\/%E4%BD%BF%E7%94%A8react%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E7%BB%93%E5%90%88js-ipfs-api%E5%AE%9E%E7%8E%B0ipfs%E7%9A%84%E6%96%87%E6%9C%AC%E6%95%B0%E6%8D%AE%E6%B5%81%E4%BC%A0%E8%BE%93\/'
           
         };
         (function() {
